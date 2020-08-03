@@ -6,8 +6,9 @@ import 'vue-loading-overlay/dist/vue-loading.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import jQuery from 'jquery'
+import { ValidationProvider, ValidationObserver, configure, extend } from 'vee-validate'
+import { email, min } from 'vee-validate/dist/rules'
 window.$ = window.jQuery = jQuery
 
 // 元件
@@ -43,6 +44,27 @@ Vue.component('pagination', {
     }
   }
 })
+// 驗證元件
+Vue.component('ValidationObserver', ValidationObserver)
+Vue.component('ValidationProvider', ValidationProvider)
+const config = {
+  classes: {
+    valid: 'is-valid',
+    invalid: 'is-invalid'
+  }
+}
+extend('required', {
+  validate (value) {
+    return {
+      required: true,
+      valid: ['', null, undefined].indexOf(value) === -1
+    }
+  },
+  computesRequired: true
+})
+extend('email', email)
+extend('min', min)
+configure(config)
 // 加入藍圖
 Vue.use(VueAxios, axios)
 

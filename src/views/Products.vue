@@ -13,8 +13,8 @@
             </h5>
           </div>
           <div class="card-footer d-flex justify-content-between">
-            <button type="button" class="btn btn-info w-100" @click.prevent="openProduct(item)">查看詳情</button>
-            <!-- <button type="button" class="btn btn-primary w-100">加入購物車</button> -->
+            <button type="button" class="btn btn-outline-info w-50" @click.prevent="openProduct(item)">查看詳情</button>
+            <button type="button" class="btn btn-primary w-50" @click="addCart(item)">加入購物車</button>
           </div>
         </div>
       </div>
@@ -55,6 +55,23 @@ export default {
     },
     openProduct (item) {
       this.$router.push(`/product/${item.id}`)
+    },
+    addCart (item) {
+      this.isLoading = true
+      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/shopping`
+      const product = {
+        product: item.id,
+        quantity: '1'
+      }
+      this.axios.post(url, product)
+        .then(res => {
+          console.log(res)
+          this.isLoading = false
+        })
+        .catch(() => {
+          alert('購物車內已有此商品')
+          this.isLoading = false
+        })
     }
   }
 }
