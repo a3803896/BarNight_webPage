@@ -1,0 +1,133 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.black {
+  font-weight: 900;
+}
+
+.noto {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.raleway {
+  font-family: 'Raleway', sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.fz-3rem {
+  font-size: 3rem;
+}
+
+/*把變數帶入mixin中，此mixin只就單純把media queries寫到我的mixin中，
+並且使用我上面設立的變數來調動media queries的width*/
+nav {
+  position: relative;
+  z-index: 99;
+}
+
+.navList {
+  position: absolute;
+  background: #fff;
+  left: -500px;
+  top: 50px;
+}
+
+@media (min-width: 992px) {
+  .navList {
+    position: relative;
+    left: 0;
+  }
+}
+
+.show {
+  top: 50px;
+  left: 0;
+}
+
+.link {
+  font-size: 18px;
+}
+
+.menuIcon {
+  position: absolute;
+  left: 0;
+  top: 7px;
+}
+
+@media (min-width: 992px) {
+  .banner {
+    position: relative;
+    margin-top: -48.72px;
+  }
+}
+
+.bannerBg {
+  background: url("https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60") center;
+  background-size: cover;
+  position: absolute !important;
+  top: 50px;
+  bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .bannerBg {
+    top: 0;
+  }
+}
+
+.bannerOpacity {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .bannerOpacity {
+    top: 0;
+  }
+}
+
+.mainText {
+  color: #fff;
+  text-align: center;
+  padding-top: 20vh;
+}
+
+@media (min-width: 992px) {
+  .mainText {
+    color: #000;
+    text-align: left;
+    padding-top: 250px;
+    padding-bottom: 250px;
+  }
+}
+/*# sourceMappingURL=all.css.map */

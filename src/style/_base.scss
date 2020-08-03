@@ -1,0 +1,40 @@
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin-bottom: 0;
+}
+.bold{
+    font-weight: bold;
+}
+
+.black{
+    font-weight: 900;
+}
+.noto{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.raleway{
+    font-family: 'Raleway', sans-serif;
+}
+.roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+.fz-3rem{
+    font-size: 3rem;
+}

@@ -69,8 +69,18 @@ const routes = [
       },
       {
         path: 'coupon',
-        name: '後臺產品列表',
+        name: '後臺優惠券列表',
         component: () => import('../views/dashboard/Coupon.vue')
+      },
+      {
+        path: 'orders',
+        name: '訂單列表',
+        component: () => import('../views/dashboard/Orders.vue')
+      },
+      {
+        path: 'files',
+        name: '圖片列表',
+        component: () => import('../views/dashboard/Files.vue')
       }
     ]
   },

@@ -1,16 +1,17 @@
 <template>
     <div class="">
       <div class="container pt-2">
-        <nav class="d-flex justify-content-between border-bottom pb-3">
-            <h2 class="mb-0 mr-3">前台</h2>
-            <div class="">
-              <router-link to="/homepage" class="btn btn-outline-primary mr-2">首頁</router-link>
-              <router-link to="/products" class="btn btn-outline-primary mr-2">產品列表</router-link>
-              <router-link to="/cart" class="btn btn-outline-primary mr-2">購物車</router-link>
-              <router-link to="/about" class="btn btn-outline-primary mr-2">關於我們</router-link>
-              <router-link to="/check" class="btn btn-outline-primary mr-2">結帳</router-link>
-              <router-link to="/login" class="btn btn-outline-danger">登入後台</router-link>
-            </div>
+        <nav class="d-flex justify-content-center justify-content-lg-between align-items-center pb-2">
+            <span class="material-icons menuIcon d-block d-lg-none" @click="toogleClass">menu</span>
+            <h2 class="h3 mb-0 raleway black font-italic">craftsman</h2>
+            <ul class="navList list-unstyled d-flex m-0 align-items-center">
+              <li><router-link to="/homepage" class="link text-info mr-3 noto">首頁</router-link></li>
+              <li><router-link to="/products" class="link text-info mr-3 noto">產品列表</router-link></li>
+              <li><router-link to="/cart" class="link text-info mr-3 noto">購物車</router-link></li>
+              <li><router-link to="/about" class="link text-info mr-3 noto">關於我們</router-link></li>
+              <li><router-link to="/check" class="link text-info mr-3 noto">結帳</router-link></li>
+              <li><router-link to="/login" class="link text-danger noto">登入後台</router-link></li>
+            </ul>
         </nav>
       </div>
       <router-view></router-view>
@@ -21,6 +22,13 @@
 export default {
   created () {
     this.$router.push('/homepage')
+  },
+  methods: {
+    toogleClass () {
+      console.log(321)
+      // eslint-disable-next-line no-undef
+      $('.navList').toggleClass('show')
+    }
   }
 }
 </script>

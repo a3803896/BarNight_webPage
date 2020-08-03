@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item) in products" :key="item.id" :class="item.tableBgColor">
+                    <tr v-for="(item) in products" :key="item.id">
                         <td>
                             {{ item.category }}
                         </td>
@@ -76,10 +76,17 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <div v-for="i in 1" :key="i + 'img'" class="form-group">
+                                    <div v-for="i in 4" :key="i + 'img'" class="form-group">
                                         <label :for="'img' + i">輸入圖片網址</label>
                                         <input :id="'img' + i" v-model="tempProduct.imageUrl[i - 1]" type="text"
                                             class="form-control" placeholder="請輸入圖片連結">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customFile">
+                                            或 上傳圖片
+                                        </label>
+                                        <input id="customFile" ref="file" type="file" class="form-control"
+                                            @change="uploadFile">
                                     </div>
                                     <img class="img-fluid" :src="tempProduct.imageUrl[0]" alt />
                                 </div>
@@ -288,9 +295,27 @@ export default {
       this.axios.delete(api).then(() => {
         // eslint-disable-next-line no-undef
         $('#delProductModal').modal('hide')
-        this.getData()
+        this.getData(this.pagination.current_page)
         this.isLoading = false
       })
+    },
+    uploadFile () {
+      this.isLoading = true
+      const uploadingFile = document.querySelector('#customFile').files[0]
+      const formData = new FormData()
+      formData.append('file', uploadingFile)
+      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/storage`
+      this.axios.post(url, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+        .then((res) => {
+          console.log(res)
+          this.tempProduct.imageUrl.push(res.data.data.path)
+          document.querySelector('#customFile').value = ''
+          this.isLoading = false
+        })
     }
   }
 }
