@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-
-        <button class="btn btn-primary" @click="openCouponModal('new')">
-          建立新的優惠券
-        </button>
+        <div class="d-flex justify-content-end pt-3">
+          <button class="btn btn-primary" @click="openCouponModal('new')">
+            建立新的優惠券
+          </button>
+        </div>
         <table class="table table-hover mt-4">
                 <thead>
                     <tr>
@@ -178,6 +179,12 @@ export default {
             // eslint-disable-next-line no-undef
             $('#couponModal').modal('hide')
             this.getCoupon()
+          })
+          .catch((err) => {
+            alert(err)
+            // eslint-disable-next-line no-undef
+            $('#couponModal').modal('hide')
+            this.isLoading = false
           })
       }
     },

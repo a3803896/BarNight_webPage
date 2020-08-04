@@ -61,7 +61,7 @@
             <pagination :inner-pagination="pagination" @change-page="getData"></pagination>
             <loading :active.sync="isLoading"></loading>
             <!-- Modal -->
-            <div id="productModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div id="productModal" class="modal fade pb-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content border-0">
