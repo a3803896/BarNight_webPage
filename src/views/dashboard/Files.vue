@@ -11,7 +11,8 @@
                         </div>
                     </div>
                 </div>
-
+                <pagination :inner-pagination="pagination" @change-page="getFiles"></pagination>
+                <loading :active.sync="isLoading"></loading>
                 <!-- modal -->
                 <div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-xl pb-5">
@@ -22,11 +23,8 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body">
+                      <div class="modal-body d-flex justify-content-center">
                         <img :src="imgPath" alt="">
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-primary">更新圖片</button>
                       </div>
                     </div>
                   </div>
@@ -68,9 +66,11 @@ export default {
   data () {
     return {
       token: '',
+      pagination: {},
       files: [],
       imgPath: '',
-      imgId: ''
+      imgId: '',
+      isLoading: false
     }
   },
   created () {
@@ -78,12 +78,15 @@ export default {
     this.getFiles()
   },
   methods: {
-    getFiles () {
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/storage`
+    getFiles (page) {
+      this.isLoading = true
+      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/storage?page=${page}`
       this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
       this.axios.get(url)
         .then((res) => {
           this.files = res.data.data
+          this.pagination = res.data.meta.pagination
+          this.isLoading = false
         })
     },
     openFile (which, item) {
@@ -105,6 +108,7 @@ export default {
       }
     },
     delFile () {
+      this.isLoading = true
       const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/storage/${this.imgId}`
       this.axios.delete(url)
         .then((res) => {

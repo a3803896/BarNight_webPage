@@ -311,10 +311,15 @@ export default {
         }
       })
         .then((res) => {
-          console.log(res)
           this.tempProduct.imageUrl.push(res.data.data.path)
           document.querySelector('#customFile').value = ''
           this.isLoading = false
+        })
+        .catch((err) => {
+          alert(err)
+          this.isLoading = false
+          // eslint-disable-next-line no-undef
+          $('#productModal').modal('hide')
         })
     }
   }

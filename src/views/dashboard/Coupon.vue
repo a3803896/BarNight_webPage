@@ -58,6 +58,8 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination :inner-pagination="pagination" @change-page="getCoupon"></pagination>
+            <loading :active.sync="isLoading"></loading>
 
         <!-- modal -->
         <div id="couponModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -112,8 +114,6 @@
                         </div>
                         <div class="modal-body">
                             是否刪除
-                            <strong class="text-danger" id="deleteTitle"></strong>
-                            商品(刪除後將無法恢復)。
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
@@ -135,11 +135,12 @@ export default {
   data () {
     return {
       coupons: [],
+      pagination: {},
       token: '',
       endDate: '',
       endTime: '',
       templateCoupon: {},
-      pagination: {}
+      isLoading: false
     }
   },
   created () {
@@ -147,17 +148,20 @@ export default {
     this.getCoupon()
   },
   methods: {
-    getCoupon () {
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupons`
+    getCoupon (page) {
+      this.isLoading = true
+      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupons?page=${page}`
       this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
       this.axios.get(url)
         .then((res) => {
           this.coupons = res.data.data
           this.pagination = res.data.meta.pagination
           console.log(this.coupons, this.pagination)
+          this.isLoading = false
         })
     },
     sendCoupon () {
+      this.isLoading = true
       if (Object.prototype.hasOwnProperty.call(this.templateCoupon, 'id')) {
         const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
         this.axios.patch(url, this.templateCoupon)
@@ -178,11 +182,12 @@ export default {
       }
     },
     deleteCoupon () {
+      this.isLoading = true
       const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
       this.axios.delete(url)
         .then((res) => {
           // eslint-disable-next-line no-undef
-          $('#couponModal').modal('hide')
+          $('#delCouponModal').modal('hide')
           this.getCoupon()
         })
     },

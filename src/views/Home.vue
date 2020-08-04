@@ -2,8 +2,7 @@
     <div class="">
       <div class="container pt-2">
         <nav class="d-flex justify-content-center justify-content-lg-between align-items-center pb-2">
-            <span class="material-icons menuIcon d-block d-lg-none" @click="toogleClass">menu</span>
-            <h2 class="h3 mb-0 raleway black font-italic">craftsman</h2>
+            <h2 class="h3 mb-0">前台</h2>
             <ul class="navList list-unstyled d-flex m-0 align-items-center">
               <li><router-link to="/homepage" class="link text-info mr-3 noto">首頁</router-link></li>
               <li><router-link to="/products" class="link text-info mr-3 noto">產品列表</router-link></li>
