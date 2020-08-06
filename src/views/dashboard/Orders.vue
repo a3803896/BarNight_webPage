@@ -55,26 +55,8 @@
                     </tr>
                 </tbody>
             </table>
-            <!-- Modal -->
-            <div class="modal fade" id="orderDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <pagination :inner-pagination="pagination" @change-page="getOrders"></pagination>
+            <loading :active.sync="isLoading"></loading>
       </div>
     </div>
 
@@ -82,10 +64,11 @@
 </template>
 
 <script>
-/* global $ */
 export default {
   data () {
     return {
+      isLoading: false,
+      pagination: {},
       token: '',
       orders: []
     }
@@ -95,17 +78,19 @@ export default {
     this.getOrders()
   },
   methods: {
-    getOrders () {
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/orders`
+    getOrders (onePage) {
+      this.isLoading = true
+      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/orders?page=${onePage}`
       this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
       this.axios.get(url)
         .then((res) => {
           this.orders = res.data.data
+          this.pagination = res.data.meta.pagination
+          this.isLoading = false
         })
     },
     openDetail (item) {
-      console.log(item)
-      $('#orderDetail').modal('show')
+      this.$router.push(`/admin/order/${item.id}`)
     }
   }
 }

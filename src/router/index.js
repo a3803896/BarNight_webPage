@@ -78,6 +78,11 @@ const routes = [
         component: () => import('../views/dashboard/Orders.vue')
       },
       {
+        path: 'order/:id',
+        name: '單一訂單詳情',
+        component: () => import('../views/dashboard/Order.vue')
+      },
+      {
         path: 'files',
         name: '圖片列表',
         component: () => import('../views/dashboard/Files.vue')
@@ -92,7 +97,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  linkActiveClass: 'active'
 })
 
 export default router

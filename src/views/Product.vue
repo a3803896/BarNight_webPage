@@ -21,12 +21,10 @@ export default {
     }
   },
   created () {
-    // console.log(this.$route.params.id)
     const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/product/${this.$route.params.id}`
     this.axios.get(url)
       .then((res) => {
         this.product = res.data.data
-        // console.log(this.product)
       })
       .catch((err) => {
         console.log(err)
