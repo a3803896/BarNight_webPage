@@ -148,15 +148,6 @@
                 class="form-control mb-2"
               ></textarea>
 
-              <label for="coupon" class="mb-1 bold">優惠券編號</label>
-              <input
-                v-model="form.coupon"
-                type="text"
-                id="coupon"
-                name="優惠券編號"
-                class="form-control mb-4"
-              />
-
               <button
                 type="button"
                 :disabled="invalid"
@@ -186,7 +177,6 @@ export default {
         tel: '',
         address: '',
         payment: '',
-        coupon: '',
         message: ''
       }
     }
@@ -270,6 +260,14 @@ export default {
       const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/orders`
       this.axios.post(url, this.form).then((res) => {
         console.log(res)
+        this.form = {
+          name: '',
+          email: '',
+          tel: '',
+          address: '',
+          payment: '',
+          message: ''
+        }
       })
     }
   }

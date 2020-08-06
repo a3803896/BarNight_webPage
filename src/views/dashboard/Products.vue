@@ -191,6 +191,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -218,8 +219,6 @@ export default {
           this.pagination = res.data.meta.pagination
           window.scrollTo(0, 0)
           this.isLoading = false
-        //   console.log(res.data.data)
-          // console.log(res.data.meta.pagination);
         })
         .catch((error) => {
           alert(error)
@@ -231,19 +230,16 @@ export default {
           this.tempProduct = {
             imageUrl: []
           }
-          // eslint-disable-next-line no-undef
           $('#productModal').modal('show')
           break
 
         case 'edit':
           this.tempProduct = JSON.parse(JSON.stringify(item))
-          // eslint-disable-next-line no-undef
           $('#productModal').modal('show')
           break
 
         case 'delete':
           this.tempProduct = JSON.parse(JSON.stringify(item))
-          // eslint-disable-next-line no-undef
           $('#delProductModal').modal('show')
           break
 
@@ -253,8 +249,7 @@ export default {
     },
     updateProduct () {
       this.isLoading = true
-      // eslint-disable-next-line no-prototype-builtins
-      if (this.tempProduct.hasOwnProperty('id')) {
+      if (Object.prototype.hasOwnProperty.call(this.tempProduct, 'id')) {
         const api = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
         const data = this.tempProduct
         this.axios.patch(api, data)

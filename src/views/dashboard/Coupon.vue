@@ -74,28 +74,46 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form class="">
-                <label for="couponName">優惠券名稱</label>
-                <input type="text" id="couponName" name="優惠券名稱" class="form-control mb-3" placeholder="輸入名稱" v-model="templateCoupon.title">
+                <validation-observer v-slot="{ invalid }">
+                  <form class="">
+                    <validation-provider rules="required" v-slot="{ errors, classes }">
+                      <label for="couponName">優惠券名稱</label>
+                      <input type="text" id="couponName" name="優惠券名稱" class="form-control mb-2" :class="classes" placeholder="輸入名稱" v-model="templateCoupon.title">
+                      <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                    </validation-provider>
 
-                <label for="couponCode">優惠券序號</label>
-                <input type="text" id="couponCode" name="優惠券序號" class="form-control mb-3" placeholder="輸入序號" v-model="templateCoupon.code">
+                    <validation-provider rules="required" v-slot="{ errors, classes }">
+                      <label for="couponCode">優惠券序號</label>
+                      <input type="text" id="couponCode" name="優惠券序號" class="form-control mb-2" :class="classes" placeholder="輸入序號" v-model="templateCoupon.code">
+                      <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                    </validation-provider>
 
-                <label for="percentOff">折扣百分比</label>
-                <input type="number" id="percentOff" name="折扣百分比" class="form-control mb-3" placeholder="輸入整數" v-model="templateCoupon.percent">
+                    <validation-provider rules="required|integer" v-slot="{ errors, classes }">
+                      <label for="percentOff">折扣百分比</label>
+                      <input type="number" id="percentOff" name="折扣百分比" class="form-control mb-2" :class="classes" placeholder="輸入整數" v-model="templateCoupon.percent">
+                      <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                    </validation-provider>
 
-                <label for="endDate">到期日</label>
-                <input type="date" id="endDate" name="到期日" class="form-control mb-3" v-model="endDate">
-                <label for="endTime">到期時間</label>
-                <input type="time" id="endTime" step="1" name="到期日" class="form-control mb-3" v-model="endTime">
+                    <validation-provider rules="required" v-slot="{ errors, classes }">
+                      <label for="endDate">到期日</label>
+                      <input type="date" id="endDate" name="到期日" class="form-control mb-2" :class="classes" v-model="endDate">
+                      <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                    </validation-provider>
 
-                <input type="checkbox" id="isOpen" name="是否啟用" class="mr-2 mb-3" v-model="templateCoupon.enabled">
-                <label for="isOpen">是否啟用</label>
-                <br>
-              </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success" @click="sendCoupon">送出</button>
+                    <validation-provider rules="required" v-slot="{ errors, classes }">
+                      <label for="endTime">到期時間</label>
+                      <input type="time" id="endTime" step="1" name="到期日" class="form-control mb-2" :class="classes" v-model="endTime">
+                      <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                    </validation-provider>
+
+                    <input type="checkbox" id="isOpen" name="是否啟用" class="mr-2 mb-2" v-model="templateCoupon.enabled">
+                    <label for="isOpen">是否啟用</label>
+                    <br>
+                    <div class="d-flex justify-content-end">
+                      <button type="button" class="btn btn-success" :disabled="invalid" @click="sendCoupon">送出</button>
+                    </div>
+                  </form>
+                </validation-observer>
               </div>
             </div>
           </div>
@@ -132,6 +150,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -165,9 +184,9 @@ export default {
       this.isLoading = true
       if (Object.prototype.hasOwnProperty.call(this.templateCoupon, 'id')) {
         const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
+        this.templateCoupon.deadline_at = this.endDate + ' ' + this.endTime
         this.axios.patch(url, this.templateCoupon)
           .then((res) => {
-            // eslint-disable-next-line no-undef
             $('#couponModal').modal('hide')
             this.getCoupon()
           })
@@ -176,13 +195,11 @@ export default {
         this.templateCoupon.deadline_at = this.endDate + ' ' + this.endTime
         this.axios.post(url, this.templateCoupon)
           .then((res) => {
-            // eslint-disable-next-line no-undef
             $('#couponModal').modal('hide')
             this.getCoupon()
           })
           .catch((err) => {
             alert(err)
-            // eslint-disable-next-line no-undef
             $('#couponModal').modal('hide')
             this.isLoading = false
           })
@@ -193,7 +210,6 @@ export default {
       const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
       this.axios.delete(url)
         .then((res) => {
-          // eslint-disable-next-line no-undef
           $('#delCouponModal').modal('hide')
           this.getCoupon()
         })
@@ -202,7 +218,6 @@ export default {
       switch (isNew) {
         case 'new':
           this.templateCoupon = {}
-          // eslint-disable-next-line no-undef
           $('#couponModal').modal('show')
           break
 
@@ -212,13 +227,11 @@ export default {
           const timeArr = this.templateCoupon.deadline.datetime.split(' ')
           this.endDate = timeArr[0] // 日期
           this.endTime = timeArr[1] // 時間
-          // eslint-disable-next-line no-undef
           $('#couponModal').modal('show')
           break
 
         case 'delete':
           this.templateCoupon = JSON.parse(JSON.stringify(item))
-          // eslint-disable-next-line no-undef
           $('#delCouponModal').modal('show')
           break
 

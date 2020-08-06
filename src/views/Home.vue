@@ -18,6 +18,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   created () {
     this.$router.push('/homepage')
@@ -25,7 +26,6 @@ export default {
   methods: {
     toogleClass () {
       console.log(321)
-      // eslint-disable-next-line no-undef
       $('.navList').toggleClass('show')
     }
   }

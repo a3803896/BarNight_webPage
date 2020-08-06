@@ -62,6 +62,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -93,13 +94,11 @@ export default {
       switch (which) {
         case 'open':
           this.imgPath = item.path
-          // eslint-disable-next-line no-undef
           $('#fileModal').modal('show')
           break
 
         case 'delete':
           this.imgId = item.id
-          // eslint-disable-next-line no-undef
           $('#delFileModal').modal('show')
           break
 
@@ -114,7 +113,6 @@ export default {
         .then((res) => {
           console.log(res)
           this.getFiles()
-          // eslint-disable-next-line no-undef
           $('#delFileModal').modal('hide')
         })
     }
