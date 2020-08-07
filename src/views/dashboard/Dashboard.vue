@@ -1,7 +1,7 @@
 <template>
     <div class="">
       <div class="container pt-2">
-          <nav class="d-flex justify-content-between border-bottom pb-3">
+          <nav class="d-flex justify-content-between pb-3">
               <h2 class="mb-0 mr-3">後台</h2>
               <div class="">
                 <router-link to="/admin/homepage" class="btn btn-outline-primary mr-2">後臺首頁</router-link>
