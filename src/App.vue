@@ -15,7 +15,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
-@import '~material-design-icons/iconfont/material-icons.css';
-@import './style/all.scss';
+@import '../src/assets/style/all.scss';
 </style>
