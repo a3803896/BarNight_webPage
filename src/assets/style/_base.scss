@@ -1,3 +1,10 @@
+$maincolor:#BA5D26;
+$subcolor:#484344;
+
+body {
+    background: lighten($subcolor,0%);
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -18,6 +25,11 @@ a:hover {
 p {
     margin-bottom: 0;
 }
+
+h1,h2,h3,h4,h5,a{
+    margin-bottom: 0 !important;
+}
+
 .bold{
     font-weight: bold;
 }
@@ -28,13 +40,24 @@ p {
 .noto{
     font-family: 'Noto Sans TC', sans-serif;
 }
-.raleway{
-    font-family: 'Raleway', sans-serif;
-}
-.roboto{
-    font-family: 'Roboto', sans-serif;
+.marker{
+    font-family: 'Permanent Marker', cursive, sans-serif;
 }
 
 .fz-3rem{
     font-size: 3rem;
+}
+
+.no-p15{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.z-10{
+    position: relative;
+    z-index: 10;
+}
+
+.vertical{
+    writing-mode: vertical-lr 
 }

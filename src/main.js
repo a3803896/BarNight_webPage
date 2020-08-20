@@ -12,6 +12,7 @@ import { email, min, integer } from 'vee-validate/dist/rules'
 // eslint-disable-next-line camelcase
 import zh_TW from 'vee-validate/dist/locale/zh_TW.json'
 window.$ = window.jQuery = jQuery
+Vue.prototype.$bus = new Vue()
 
 // 元件
 Vue.component('Loading', Loading)

@@ -1,3 +1,4 @@
+$superlargephone:1700px;
 $verylargephone:1200px;
 $largephone:992px;
 $mediumphone:768px;
@@ -6,6 +7,12 @@ $smallphone:576px;
 /*把變數帶入mixin中，此mixin只就單純把media queries寫到我的mixin中，
 並且使用我上面設立的變數來調動media queries的width*/
 
+//大電腦
+@mixin xxl-width() {
+    @media (min-width:$superlargephone) {
+        @content;
+    }
+}
 //電腦
 @mixin xl-width() {
     @media (min-width:$verylargephone) {

@@ -1,0 +1,219 @@
+h1 a{
+    margin-top: -5px;
+}
+.bannerBg{
+    background: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/iPJ9bdl4m7LAh6FwXHvCbQizbAbpR7hPIDT3DRsnsEB1OzkSJrJUq2PWaAOBfjBVqIqIsylHX3IxzQ9LKYHhSumOjNBA5YyXbS226BOmlF9OofTV1dRHC1KiJaPF4pg9.jpg') center no-repeat;
+    background-size: cover;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include lg-width{
+    }
+    @include xl-width{
+        margin-top: -72.17px;
+        clip-path: polygon(0 0, 17% 100%, 100% 100%, 100% 0%);
+    }
+}
+
+.bannerOpacity{
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    @include xl-width {
+        background: rgba(0, 0, 0, 0.15);
+    }
+}
+
+.navBar{
+    position: relative;
+    z-index: 10;
+}
+
+.navList{
+    background: #fff;
+    position: absolute;
+    left: -150vw;
+    a{
+        color: #000;
+        display: block;
+        width: 100vw;
+        text-align: center;
+        position: relative;
+        z-index: 12;
+    }
+    @include lg-width{
+        background: unset;
+        position: unset;
+        a {
+            display: inline;
+        }
+    }
+    @include xl-width{
+        a{
+            color: #fff;
+        }
+    }
+}
+
+.link {
+    @include lg-width {
+        // -webkit-text-stroke: 0.1px $subcolor;
+        margin-right: 16px;
+        font-size: 20px;
+    }
+}
+
+.showList{
+    left: 0;
+    right: 0;
+    top: 48px;
+}
+
+.menuIcon{
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    cursor: pointer;
+}
+
+.intro{
+    position: relative;
+    padding-top: 32vh;
+    padding-bottom: 32vh;
+    z-index: 9;
+    color: #fff;
+    .enIntro{
+        font-size: 32px;
+        text-align: center;
+    }
+    .chIntro{
+        font-size: 23px; 
+        text-align: center;  
+    }
+    @include sm-width{
+        .enIntro{
+            font-size: 40px;
+        }
+        .chIntro{
+            font-size: 32px; 
+        }
+    }
+    @include lg-width{
+        
+    }
+    @include xl-width{
+        color: $maincolor;
+        .enIntro{
+            text-align-last: left;
+        }      
+        .chIntro{
+            text-align-last: left;
+        }              
+    }
+    
+}
+
+main .card {
+    background: initial;
+    @include md-width {
+        width: 48%;
+    }
+    @include lg-width {
+        width: 100%;
+    }
+    img{
+    height: 250px;
+    object-fit: cover;
+    @include md-width{
+        height: 300px;
+    }
+    @include lg-width{
+        height: 385px;
+    }
+    }
+    .card-img-top {
+        @include lg-width{
+            width: 50%;
+        }
+    }
+    .position-90{
+        object-position: 0 90%;
+    }
+    .position-74{
+        object-position: 0 74%;
+    }
+    .position-60{
+        object-position: 0 60%;
+    }
+}
+.clippy{
+    @include lg-width{
+        clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+    }
+}
+.clippy-reverse{
+    @include lg-width{
+        clip-path: polygon(0% 0%, 85% 0, 100% 50%, 85% 100%, 0% 100%);
+    }
+}
+
+.bartender{
+    background: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/bnprhuy969f2ppRqrDsK3F90OdznmYh61y7OWvmTen2EeKPCYRlEDo9l9b4aObGiLWF6E5A3gkuHVJS3kLwaHIXfUi3VmtM1T8WOrGNJbKNRHxGHf4Cm8t7vTNb3PywU.jpg') center;
+    background-size: cover;
+    height: 420px;
+    @include xl-width{
+        height: 520px;
+    }
+    .bartenderOpacity{
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+    @include sm-width{
+        background-position: 0 31%;
+    }
+    @include md-width{
+        background-position: 0 37%;
+    }
+    @include lg-width{
+        background-position: 0 34%;
+    }
+    @include xl-width{
+        background-position: 0 36%;
+    }
+    @include xxl-width{
+        background-position: 0 32%;
+    }
+    h3 {
+        @include md-width{
+            font-size: 30px;
+        }
+        @include xl-width{
+            font-size: 36px;
+        }
+    }
+    h2 {
+        -webkit-text-stroke: 0.1px lighten($subcolor,65%);
+        @include md-width{
+            font-size: 42px;
+        }
+        @include lg-width{
+            font-size: 48px;
+        }
+        @include xl-width{
+            font-size: 54px;
+        }
+    }
+    p {
+        @include xl-width {
+            font-size: 20px;
+        }
+    }
+}
