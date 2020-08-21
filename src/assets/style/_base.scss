@@ -1,8 +1,14 @@
-$maincolor:#BA5D26;
+$maincolor:#ee7631;
 $subcolor:#484344;
 
-body {
-    background: lighten($subcolor,0%);
+.black-texture {
+    background: url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80') ;
+    // background-attachment: fixed;
+}
+.white-texture {
+    background: url('https://images.unsplash.com/photo-1566305977571-5666677c6e98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2097&q=80') center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 img {

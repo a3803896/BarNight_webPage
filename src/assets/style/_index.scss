@@ -1,6 +1,3 @@
-h1 a{
-    margin-top: -5px;
-}
 .bannerBg{
     background: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/iPJ9bdl4m7LAh6FwXHvCbQizbAbpR7hPIDT3DRsnsEB1OzkSJrJUq2PWaAOBfjBVqIqIsylHX3IxzQ9LKYHhSumOjNBA5YyXbS226BOmlF9OofTV1dRHC1KiJaPF4pg9.jpg') center no-repeat;
     background-size: cover;
@@ -29,39 +26,35 @@ h1 a{
 .navBar{
     position: relative;
     z-index: 10;
+    @include xl-width {
+        background: rgba(0, 0, 0, 0.55);
+    }
 }
 
 .navList{
-    background: #fff;
     position: absolute;
-    left: -150vw;
+    top: -100vw;
+    transition: 0.1s ease-in-out;
+    transition-property: left,top;
     a{
-        color: #000;
+        color: $maincolor;
         display: block;
         width: 100vw;
         text-align: center;
         position: relative;
         z-index: 12;
+        background: #1a1e1f;
     }
     @include lg-width{
         background: unset;
         position: unset;
         a {
+            color: #fff;
+            background: unset;
+            margin-right: 16px;
+            font-size: 20px;
             display: inline;
         }
-    }
-    @include xl-width{
-        a{
-            color: #fff;
-        }
-    }
-}
-
-.link {
-    @include lg-width {
-        // -webkit-text-stroke: 0.1px $subcolor;
-        margin-right: 16px;
-        font-size: 20px;
     }
 }
 
@@ -69,12 +62,27 @@ h1 a{
     left: 0;
     right: 0;
     top: 48px;
+    transition: 0.5s ease-in-out;
+    transition-property: left,top;
+    z-index: 9;
+    .link {
+        color: $maincolor;
+        font-weight: bold;
+        font-size: 20px;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        border-bottom: 1px solid #fff;
+    }
+    li:last-child .link {
+        border-bottom: none;
+    }
 }
 
 .menuIcon{
     position: absolute;
-    left: 13px;
-    top: 13px;
+    padding: 10px;
+    left: 10px;
+    top: 12px;
     cursor: pointer;
 }
 
@@ -124,14 +132,23 @@ main .card {
         width: 100%;
     }
     img{
-    height: 250px;
-    object-fit: cover;
-    @include md-width{
-        height: 300px;
+        height: 250px;
+        object-fit: cover;
+        @include md-width{
+            height: 300px;
+        }
+        @include lg-width{
+            height: 385px;
+        }
     }
-    @include lg-width{
-        height: 385px;
-    }
+    .trans {
+        @include xl-width {
+            transition: 0.3s ease-in-out;
+            &:hover {
+                transform: scale(1.1);
+                transition: 0.3s ease-in-out;
+            }
+        }
     }
     .card-img-top {
         @include lg-width{
@@ -200,7 +217,7 @@ main .card {
         }
     }
     h2 {
-        -webkit-text-stroke: 0.1px lighten($subcolor,65%);
+        -webkit-text-stroke: 0.1px #fff;
         @include md-width{
             font-size: 42px;
         }
