@@ -9,7 +9,7 @@
                 <li><router-link to="/products" class="link noto">產品列表</router-link></li>
                 <li><router-link to="/cart" class="link noto">購物車</router-link></li>
                 <li><router-link to="/check" class="link noto">結帳</router-link></li>
-                <!-- <li><router-link to="/login" class="text-danger noto">登入後台</router-link></li> -->
+                <li><router-link to="/login" class="text-danger noto">登入後台</router-link></li>
               </ul>
           </nav>
         </div>

@@ -22,26 +22,26 @@
                 <div class="col-12 col-lg-12 d-md-flex flex-md-wrap justify-content-md-between">
                     <div class="card border-0 mb-4 flex-lg-row">
                         <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/02r2dZonYIGObMXF6MbCPvMqdq1BOAZuNBQLWxa9Hf6ey3ntUI8GmNRtss7Kx0KEMnYpZrAO6Dx98tiG4t0Bg9VAI9jdeBLndcyFaejCipTEdMAgRErwawRSernYXiFw.jpg" class="clippy-reverse card-img-top position-60 trans" alt="">
-                        <div class="card-body pl-0 p-lg-3 d-lg-flex flex-column justify-content-lg-center align-items-lg-center">
-                            <h3 class="card-text text-white bold w-75 text-left noto">專業調酒師為您調製多樣化的調酒，酸甜輕重 隨你所欲。</h3>
+                        <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
+                            <h3 class="card-text text-white bold noto">專業調酒師為您調製多樣化的調酒，酸甜輕重 隨你所欲。</h3>
                         </div>
                     </div>
                     <div class="card border-0 mb-4 flex-lg-row-reverse">
                         <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/7cDf3BOgONHWeAK9hfgvgGt3FJB7uFTQ4Mq2TGaJd0a1Gg19IMtkUppHuETagTBcPjj0gNzdHrokHdhIdmg3xLOWXqe227VRcgWvcHtjsgRYefyE7sG3uVA8GuVjqAHo.jpg" class="clippy card-img-top position-74 trans" alt="">
-                        <div class="card-body pl-0 p-lg-3 d-lg-flex flex-column justify-content-lg-center align-items-lg-center">
-                            <h3 class="card-text text-white bold w-75 noto text-left">每日採買新鮮食材及調酒原料，讓您喝得開心、也喝得安心。</h3>
+                        <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
+                            <h3 class="card-text text-white bold noto">每日採買新鮮食材及調酒原料，讓您喝得開心、也喝得安心。</h3>
                         </div>
                     </div>
                     <div class="card border-0 mb-4 flex-lg-row">
                         <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/25eKyhOzx1VaMJiIUi53tIKByFUdG1JVcEHNfpJUMTUNXE9dmUzFuilwbripHTw8Ae9noCCcKKtfZSGBGAinSBzE1Dn3RRIGIWVp1yyacXK5xjvWPYUmgBRTIIS3qHH8.jpg" class="clippy-reverse card-img-top position-90 trans" alt="">
-                        <div class="card-body pl-0 p-lg-3 d-lg-flex flex-column justify-content-lg-center align-items-lg-center">
-                            <h3 class="card-text text-white bold w-75 noto text-left">全店使用 3M 廚下淨水系統，從飲用水到冰塊皆純淨無瑕。</h3>
+                        <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
+                            <h3 class="card-text text-white bold noto">全店使用 3M 廚下淨水系統，從飲用水到冰塊皆純淨無瑕。</h3>
                         </div>
                     </div>
                     <div class="card border-0 flex-lg-row-reverse">
                         <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/6brtREw0qo7dt4yOij0cPVCGcCLRfH43kSUWXmx3TGs7v0FJUflbNN9VJDZsULErWOSmGu56YngFB6vS7GSZlBXFX225PNL02Zi5M36BvfSUUAIBkUj2VGpRrB6VQjok.jpg" class="clippy card-img-top trans" alt="">
-                         <div class="card-body pl-0 p-lg-3 d-lg-flex flex-column justify-content-lg-center align-items-lg-center">
-                            <h3 class="card-text text-white bold w-75 noto text-left">最頂級的食材配上最頂尖的手藝，多道美味的餐點任君挑選。</h3>
+                         <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
+                            <h3 class="card-text text-white bold noto">最頂級的食材配上最頂尖的手藝，多道美味的餐點任君挑選。</h3>
                         </div>
                     </div>
                 </div>
@@ -64,6 +64,26 @@
                 </div>
             </div>
         </div>
-
+        <div class="info container black-texture">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-8 col-lg-6 pt-5 pb-5">
+                    <div class="infoText pt-lg-5 pb-lg-5 bg-dark">
+                        <h3 class="text-main marker text-center mb-2 mb-lg-4">bar night <span class="noto">夜吧</span></h3>
+                        <p class="text-center text-main bold mb-2">TEL</p>
+                        <p class="text-center text-white h5 pb-3 mb-3 border-bottom">(02)2111-0451</p>
+                        <p class="text-center text-main bold mb-2">ADDRESS</p>
+                        <p class="text-center text-white h5 pb-3 mb-3 border-bottom">台北市中正區重慶南路一段122號</p>
+                        <p class="text-center text-main bold mb-2">OPEN TIME</p>
+                        <p class="text-center text-white h5">週二至週四：19:00-24:00</p>
+                        <p class="text-center text-white h5 pb-3 mb-3 border-bottom">週五至週日：18:00-01:00</p>
+                        <ul class="d-flex justify-content-center list-unstyled mb-0 h4">
+                            <li><a href="#" class="text-white mx-3"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#" class="text-white mx-3"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" class="text-white ml-3"><i class="fab fa-line"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>

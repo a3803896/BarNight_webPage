@@ -88,8 +88,8 @@
 
 .intro{
     position: relative;
-    padding-top: 32vh;
-    padding-bottom: 32vh;
+    padding-top: 30vh;
+    padding-bottom: 30vh;
     z-index: 9;
     color: #fff;
     .enIntro{
@@ -141,15 +141,22 @@ main .card {
             height: 385px;
         }
     }
-    .trans {
-        @include xl-width {
-            transition: 0.3s ease-in-out;
-            &:hover {
-                transform: scale(1.1);
-                transition: 0.3s ease-in-out;
-            }
+    .card-text {
+        text-align: center;
+        @include lg-width {
+            text-align: left;
+            width: 80%;
         }
     }
+    // .trans {
+    //     @include xl-width {
+    //         transition: 0.3s ease-in-out;
+    //         &:hover {
+    //             transform: scale(1.1);
+    //             transition: 0.3s ease-in-out;
+    //         }
+    //     }
+    // }
     .card-img-top {
         @include lg-width{
             width: 50%;
@@ -232,5 +239,15 @@ main .card {
         @include xl-width {
             font-size: 20px;
         }
+    }
+}
+
+.infoText{
+    padding: 2rem;
+    @include sm-width {
+        padding: 3rem;
+    }
+    @include lg-width {
+        padding: 5rem;
     }
 }

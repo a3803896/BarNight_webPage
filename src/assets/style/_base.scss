@@ -2,11 +2,13 @@ $maincolor:#ee7631;
 $subcolor:#484344;
 
 .black-texture {
-    background: url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80') ;
+    background: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/G6Q4loMCMVzDjolhP98EObpsb8mR4jCI1XHgAHOUWsmB6C9a03NdIpfiUKkWNJ5B3w9bxLZfl4FC72FSi2yg22D3ur3TBGFodP505g48nJcJBeTCZoTnhpd9jTpQiB4B.jpg') center;
+    // backdrop-filter: brightness(70%);
     // background-attachment: fixed;
+    background-size: 100%;
 }
 .white-texture {
-    background: url('https://images.unsplash.com/photo-1566305977571-5666677c6e98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2097&q=80') center;
+    background: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/sQebyps3TwdjKfyu0su3v5DvmCcCtNwk4LCuG3rUSnl3GXvljPcUUMXE9PZgNHHdmd4bbeO75NuI8qKcWeWJSeIAZx64RPg7x5YRfFeToTCTrNjSN8xK94LwXh5EwSlq.jpg') center;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -67,3 +69,4 @@ h1,h2,h3,h4,h5,a{
 .vertical{
     writing-mode: vertical-lr 
 }
+
