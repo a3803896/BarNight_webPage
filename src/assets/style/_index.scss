@@ -36,6 +36,9 @@
     top: -100vw;
     transition: 0.1s ease-in-out;
     transition-property: left,top;
+    li:last-child a {
+        margin: 0;
+    }
     a{
         color: $maincolor;
         display: block;

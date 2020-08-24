@@ -16,6 +16,7 @@ $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
+$main:#ee7631;
 
 $grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -824,15 +825,15 @@ $jumbotron-bg: $gray-200 !default;
 
 $card-spacer-y: .75rem !default;
 $card-spacer-x: 1.25rem !default;
-$card-border-width: $border-width !default;
-$card-border-radius: $border-radius !default;
-$card-border-color: rgba($black, .125) !default;
+$card-border-width: 1px !default;
+$card-border-radius: 0 !default;
+$card-border-color: $main !default;
 $card-inner-border-radius: subtract($card-border-radius, $card-border-width) !default;
 $card-cap-bg: rgba($black, .03) !default;
 $card-cap-color: null !default;
 $card-height: null !default;
-$card-color: null !default;
-$card-bg: $white !default;
+$card-color: $white !default;
+$card-bg: unset !default;
 
 $card-img-overlay-padding: 1.25rem !default;
 
@@ -840,7 +841,7 @@ $card-group-margin: $grid-gutter-width / 2 !default;
 $card-deck-margin: $card-group-margin !default;
 
 $card-columns-count: 3 !default;
-$card-columns-gap: 1.25rem !default;
+$card-columns-gap: 1.5rem !default;
 $card-columns-margin: $card-spacer-y !default;
 
 

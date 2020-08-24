@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container bg-white p-3">
             <div class="text-right mt-3">
                 <button class="btn btn-primary" @click="openModal('new')">
                     建立新的產品

@@ -1,0 +1,22 @@
+.products{
+    .card-columns {
+        @include sm-width {
+            column-count:2;
+        }
+        @include lg-width {
+            column-count:3;
+        }
+    }
+    .card {
+
+    }
+    .card img {
+        height: 350px;
+        object-fit: cover;
+        object-position: 55% 70%;
+        border-bottom: 1px solid $maincolor;
+        @include sm-width {
+            height: auto;
+        }
+    }
+}

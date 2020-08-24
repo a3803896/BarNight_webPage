@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-5 pt-5">
-                <ul class="list-unstyled text-center bold h3">
+                <ul class="list-unstyled text-center bold h3 text-white noto">
                     <li>台子要多窄有多窄</li>
                     <li>桌子要多小有多小</li>
                     <li>顧客要舒服就不讓他舒服</li>

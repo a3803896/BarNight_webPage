@@ -1,21 +1,23 @@
 <template>
   <div>
-    <div class="container">
-      <div class="d-flex justify-content-between flex-wrap" id="productList">
-        <div class="card mb-3" style="width:32%" v-for="(item) in products" :key="item.id">
-          <img :src="item.imageUrl[0]" class="card-img-top" />
-          <div class="card-body">
-            <h5 class="card-title">{{ item.title }}</h5>
-            <p class="card-text">{{ item.content }}</p>
-            <h5 class="text-right text-danger mb-0">
-              <span class="text-dark bold">總價：</span>
+    <div class="products container">
+      <div class="card-columns" id="productList">
+        <div class="card mb-3" v-for="(item) in products" :key="item.id">
+          <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)"/>
+          <div class="card-body p-3">
+            <h5 class="card-title h3 mb-3">{{ item.title }}</h5>
+            <p class="card-text mb-3">{{ item.content }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="text-right text-main bold">
+              <span class="text-white bold">總價：</span>
               {{ item.price }}元
             </h5>
+                <button type="button" class="btn btn-outline-main noto rounded-pill d-flex" @click="addCart(item)"><i class="material-icons">shopping_cart</i></button>
+            </div>
           </div>
-          <div class="card-footer d-flex justify-content-between">
-            <button type="button" class="btn btn-outline-info w-50" @click.prevent="openProduct(item)">查看詳情</button>
-            <button type="button" class="btn btn-primary w-50" @click="addCart(item)">加入購物車</button>
-          </div>
+          <!-- <div class="card-footer d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-info w-50">查看詳情</button>
+          </div> -->
         </div>
       </div>
       <pagination :inner-pagination="pagination" @change-page="getProduct"></pagination>
@@ -78,9 +80,5 @@ export default {
 </script>
 
 <style>
-.card img {
-  width: 100%;
-  height: 229px;
-  object-fit: cover;
-}
+
 </style>
