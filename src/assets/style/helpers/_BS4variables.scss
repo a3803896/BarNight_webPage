@@ -81,7 +81,8 @@ $theme-colors: map-merge(("primary": $primary,
     "black": #000,
     "white":#fff,
     "main":#ee7631,
-    "sub":#484344),
+    "sub":#484344,
+    "gray":#F2F2F2),
   $theme-colors);
 
 // Set a specific jump point for requesting color jumps

@@ -2,10 +2,10 @@
   <div>
     <div class="products container">
       <div class="card-columns" id="productList">
-        <div class="card mb-3" v-for="(item) in products" :key="item.id">
+        <div class="card mb-4" v-for="(item) in products" :key="item.id">
           <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)"/>
           <div class="card-body p-3">
-            <h5 class="card-title h3 mb-3">{{ item.title }}</h5>
+            <a class="card-title text-main h3 bold mb-3" @click.prevent="openProduct(item)">{{ item.title }}</a>
             <p class="card-text mb-3">{{ item.content }}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="text-right text-main bold">

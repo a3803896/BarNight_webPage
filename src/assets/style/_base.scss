@@ -28,6 +28,7 @@ img {
 a,
 a:hover {
     text-decoration: none;
+    cursor: pointer;
 }
 
 p {
@@ -74,3 +75,16 @@ h1,h2,h3,h4,h5,a{
     writing-mode: vertical-lr 
 }
 
+.w-30 {
+    width: 30%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.p-md-32 {
+    @include md-width{
+        padding: 32px !important;
+    }
+}
