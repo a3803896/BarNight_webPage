@@ -2,7 +2,7 @@
     <div class="">
       <navBar></navBar>
       <router-view></router-view>
-      <div class="bg-dark">
+      <div class="bg-dark fixed-bottom">
             <div class="container">
                 <div class="d-flex align-items-center justify-content-between text-white py-4">
                     <p class="mb-0 noto">© 2020 LOGO All Rights Reserved.</p>

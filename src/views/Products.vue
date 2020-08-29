@@ -3,17 +3,17 @@
     <div class="products container">
       <div class="card-columns" id="productList">
         <div class="card mb-4" v-for="(item) in products" :key="item.id">
-          <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)"/>
-          <div class="card-body p-3">
-            <a class="card-title text-main h3 bold mb-3" @click.prevent="openProduct(item)">{{ item.title }}</a>
-            <p class="card-text mb-3">{{ item.content }}</p>
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="text-right text-main bold">
-              <span class="text-white bold">總價：</span>
-              {{ item.price }}元
-            </h5>
-                <button type="button" class="btn btn-outline-main noto rounded-pill d-flex" @click="addCart(item)"><i class="material-icons">shopping_cart</i></button>
-            </div>
+          <div class=" position-relative">
+              <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)"/>
+              <button type="button" class="addCart position-absolute btn btn-outline-main noto rounded-pill d-flex" @click="addCart(item)"><i class="material-icons">shopping_cart</i></button>
+          </div>
+          <div class="card-body p-3 bg-dark">
+              <a class="card-title text-main h4 bold mb-2 noto" @click.prevent="openProduct(item)">{{ item.title }}</a>
+              <!-- <p class="card-text mb-3">{{ item.content }}</p> -->
+              <div class="">
+                  <span class="h5 mb-0 mr-2 text-white bold">NT${{ item.price }}元</span>
+                  <strike class="text-sub bold">NT${{ item.price }}元</strike>
+              </div>
           </div>
           <!-- <div class="card-footer d-flex justify-content-between">
             <button type="button" class="btn btn-outline-info w-50">查看詳情</button>

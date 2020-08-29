@@ -1,29 +1,15 @@
 <template>
-  <div>
+  <div class="cart">
     <div class="container">
-      <div class="row d-flex justify-content-center pt-5 mb-3">
-        <div class="col-9">
-          <div class="d-flex justify-content-end mb-3">
-            <button class="btn btn-outline-danger btn-sm" @click="clearAll">清空購物車</button>
-          </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>刪除</th>
-                <th>品名</th>
-                <th>數量</th>
-                <th>單位</th>
-                <th>單價</th>
-                <th class="text-right">小計</th>
-              </tr>
-            </thead>
+        <!-- <div class="col-9">
+          <table class="table text-white">
             <tbody>
               <tr v-for="item in cartProducts" :key="item.product.id">
                 <td>
                   <button
                     type="button"
                     class="btn btn-outline-danger d-flex p-1"
-                    @click="deleteCart(item)"
+                    @click.prevent="deleteCart(item)"
                   >
                     <span class="material-icons">delete_forever</span>
                   </button>
@@ -35,7 +21,7 @@
                       <button
                         type="button"
                         class="btn btn-outline-primary d-flex align-items-center p-0 pl-1 pr-1"
-                        @click="editCart('minus',item)"
+                        @click.prevent="editCart('minus',item)"
                       >
                         <span class="material-icons">remove</span>
                       </button>
@@ -45,7 +31,7 @@
                       <button
                         type="button"
                         class="btn btn-outline-primary d-flex align-items-center p-0 pl-1 pr-1"
-                        @click="editCart('plus',item)"
+                        @click.prevent="editCart('plus',item)"
                       >
                         <span class="material-icons">add</span>
                       </button>
@@ -68,96 +54,128 @@
               </tr>
             </tfoot>
           </table>
-          <pagination :inner-pagination="pagination" @change-page="getCart"></pagination>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-5">
-          <form action class="mb-5">
-            <validation-observer v-slot="{ invalid }">
-              <validation-provider rules="required" v-slot="{ errors, classes }">
-                <label for="name" class="mb-1 bold">收件人姓名</label>
-                <input
-                  v-model="form.name"
-                  type="text"
-                  id="name"
-                  name="收件人姓名"
-                  class="form-control mb-2"
-                  :class="classes"
-                />
-                <span class="invalid-feedback">{{ errors[0] }}</span>
-              </validation-provider>
+        </div> -->
+      <form class="pt-3 pb-3 pt-lg-4 pb-lg-4">
+        <validation-observer v-slot="{ invalid }">
+          <div class="d-flex justify-content-end">
+              <button class="btn btn-outline-sub noto bold btn-sm rounded-0 mb-3" @click.prevent="clearAll">清空購物車</button>
+          </div>
+          <div class="row justify-content-center text-white pt-lg-4 pb-lg-4 flex-column-reverse align-items-center flex-lg-row mb-3">
+            <div class="col-12 col-md-8 col-lg-4">
+                  <validation-provider rules="required" v-slot="{ errors, classes }">
+                    <label for="name" class="mb-1 bold">收件人姓名</label>
+                    <input
+                      v-model="form.name"
+                      type="text"
+                      id="name"
+                      name="收件人姓名"
+                      class="form-control mb-2"
+                      :class="classes"
+                    />
+                    <span class="invalid-feedback">{{ errors[0] }}</span>
+                  </validation-provider>
 
-              <validation-provider rules="required|email" v-slot="{ errors, classes }">
-                <label for="email" class="mb-1 bold">Email</label>
-                <input
-                  v-model="form.email"
-                  type="email"
-                  id="email"
-                  name="電子郵件"
-                  class="form-control mb-2"
-                  :class="classes"
-                />
-                <span class="invalid-feedback">{{ errors[0] }}</span>
-              </validation-provider>
+                  <validation-provider rules="required|email" v-slot="{ errors, classes }">
+                    <label for="email" class="mb-1 bold">Email</label>
+                    <input
+                      v-model="form.email"
+                      type="email"
+                      id="email"
+                      name="電子郵件"
+                      class="form-control mb-2"
+                      :class="classes"
+                    />
+                    <span class="invalid-feedback">{{ errors[0] }}</span>
+                  </validation-provider>
 
-              <validation-provider rules="required|min:8" v-slot="{ errors, classes }">
-                <label for="tel" class="mb-1 bold">電話</label>
-                <input
-                  v-model="form.tel"
-                  type="tel"
-                  id="tel"
-                  name="電話號碼"
-                  class="form-control mb-2"
-                  :class="classes"
-                />
-                <span class="invalid-feedback">{{ errors[0] }}</span>
-              </validation-provider>
+                  <validation-provider rules="required|min:8" v-slot="{ errors, classes }">
+                    <label for="tel" class="mb-1 bold">電話</label>
+                    <input
+                      v-model="form.tel"
+                      type="tel"
+                      id="tel"
+                      name="電話號碼"
+                      class="form-control mb-2"
+                      :class="classes"
+                    />
+                    <span class="invalid-feedback">{{ errors[0] }}</span>
+                  </validation-provider>
 
-              <validation-provider rules="required" v-slot="{ errors, classes }">
-                <label for="address" class="mb-1 bold">地址</label>
-                <input
-                  v-model="form.address"
-                  type="text"
-                  id="address"
-                  name="地址"
-                  class="form-control mb-2"
-                  :class="classes"
-                />
-                <span class="invalid-feedback">{{ errors[0] }}</span>
-              </validation-provider>
+                  <validation-provider rules="required" v-slot="{ errors, classes }">
+                    <label for="address" class="mb-1 bold">地址</label>
+                    <input
+                      v-model="form.address"
+                      type="text"
+                      id="address"
+                      name="地址"
+                      class="form-control mb-2"
+                      :class="classes"
+                    />
+                    <span class="invalid-feedback">{{ errors[0] }}</span>
+                  </validation-provider>
 
-              <label for="payment" class="mb-1 bold">購買方式</label>
-              <select v-model="form.payment" name="付款方式" id="payment" class="form-control mb-2">
-                <option value disabled selected>請選擇付款方式</option>
-                <option value="WebATM">WebATM</option>
-                <option value="ATM">ATM</option>
-                <option value="Barcode">Barcode</option>
-                <option value="Credit">Credit</option>
-                <option value="ApplePay">ApplePay</option>
-                <option value="GooglePay">GooglePay</option>
-              </select>
+                  <label for="payment" class="mb-1 bold">購買方式</label>
+                  <select v-model="form.payment" name="付款方式" id="payment" class="form-control mb-2">
+                    <option value disabled selected>請選擇付款方式</option>
+                    <option value="WebATM">WebATM</option>
+                    <option value="ATM">ATM</option>
+                    <option value="Barcode">Barcode</option>
+                    <option value="Credit">Credit</option>
+                    <option value="ApplePay">ApplePay</option>
+                    <option value="GooglePay">GooglePay</option>
+                  </select>
 
-              <label for="msgForSeller" class="mb-1 bold">留言給賣家</label>
-              <textarea
-                v-model="form.message"
-                name="給賣家的話"
-                id="msgForSeller"
-                cols="30"
-                rows="4"
-                class="form-control mb-2"
-              ></textarea>
-
-              <button
-                type="button"
-                :disabled="invalid"
-                class="btn btn-primary w-25 align-self-end float-right mb-5"
-                @click="sendOrder"
-              >送出訂單</button>
-            </validation-observer>
-          </form>
-        </div>
-      </div>
+                  <label for="msgForSeller" class="mb-1 bold">留言給賣家</label>
+                  <textarea v-model="form.message" name="給賣家的話" id="msgForSeller" rows="2" class="form-control"></textarea>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8">
+              <div class="cartCard d-flex mb-3" v-for="item in cartProducts" :key="item.product.id">
+                <img :src="item.product.imageUrl[0]" alt="" class="w-25">
+                <div class="w-75 bg-gray p-2 p-lg-3 text-black noto bold d-flex flex-column justify-content-between">
+                    <div>
+                      <h5 class="d-flex justify-content-between align-items-center mb-lg-1">
+                      {{ item.product.title }}
+                      <i class="pointer material-icons" @click.prevent="deleteCart(item)">clear</i>
+                      </h5>
+                      <p class="text-sub">NT${{ item.product.price }}</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <button
+                            type="button"
+                            class="btn d-flex align-items-center p-0 pl-1 pr-1"
+                            @click.prevent="editCart('minus',item)"
+                          >
+                            <span class="material-icons">remove</span>
+                          </button>
+                        </div>
+                        <span class="p-2 pl-3 pr-3">{{ item.quantity }}</span>
+                        <div class="input-group-append">
+                          <button
+                            type="button"
+                            class="btn d-flex align-items-center p-0 pl-1 pr-1"
+                            @click.prevent="editCart('plus',item)"
+                          >
+                            <span class="material-icons">add</span>
+                          </button>
+                        </div>
+                      </div>
+                      <h5 class="bold">NT${{ item.quantity*item.product.price }}</h5>
+                    </div>
+                </div>
+              </div>
+              <h2 class="noto text-right text-main bold">Total：NT$<span id="totalPrice"></span></h2>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="button" :disabled="invalid" class="btn btn-main rounded-0" @click.prevent="sendOrder">
+              送出訂單
+            </button>
+          </div>
+        </validation-observer>
+      </form>
+      <!-- <pagination :inner-pagination="pagination" @change-page="getCart"></pagination> -->
     </div>
     <loading :active.sync="isLoading"></loading>
   </div>
@@ -257,9 +275,10 @@ export default {
       }
     },
     sendOrder () {
+      this.isLoading = true
       const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/orders`
       this.axios.post(url, this.form).then((res) => {
-        console.log(res)
+        this.getCart()
         this.form = {
           name: '',
           email: '',
