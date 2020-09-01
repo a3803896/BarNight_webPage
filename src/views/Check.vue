@@ -89,7 +89,7 @@ export default {
         })
     },
     openDetail (item) {
-    //   this.$router.push(`/admin/order/${item.id}`)
+      this.$router.push(`/check_detail/${item.id}`)
     }
   }
 }
