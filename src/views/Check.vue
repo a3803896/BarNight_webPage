@@ -1,56 +1,53 @@
 <template>
-  <div class="container">
+  <div class="container check">
     <div class="row">
       <div class="col-12">
-        <table class="table mt-4 text-white">
-                <thead>
+        <table class="table table-hover table-borderless table-dark noto mt-4 text-white ">
+                <thead class="border-bottom">
                     <tr>
-                        <th>
+                        <th class="d-none d-md-block">
                             下單時間
                         </th>
                         <th>
                           購買款項
                         </th>
-                        <th>
+                        <th class="d-none d-md-block">
                             付款方式
                         </th>
                         <th>
-                            應付金額
+                            金額
                         </th>
                         <th>
-                            是否付款
+                            狀態
                         </th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item) in checkList" :key="item.id">
-                        <td>
+                        <td class="d-none d-md-block">
                             {{ item.created.datetime }}
                         </td>
                         <td>
-                          <ul class="list-unstyled">
-                            <li
-                              v-for="(product, key) in item.products"
-                              :key="key"
-                            >
-                              {{ product.product.title }} ：{{ product.quantity }}
-                              {{ product.product.unit }}
+                          <ul class="discList m-0">
+                            <li v-for="(product, key) in item.products" :key="key">
+                              {{ product.product.title }}
+                              <span class="d-none d-md-inline">：{{ product.quantity }}{{ product.product.unit }}</span>
                             </li>
                           </ul>
                         </td>
-                        <td class="">
+                        <td class="d-none d-md-block">
                             {{ item.payment }}
                         </td>
                         <td class="">
                             {{ item.amount }}
                         </td>
                         <td>
-                            <span v-if="item.paid" class="text-success">已付款</span>
+                            <span v-if="item.paid" class="text-main">已付款</span>
                             <span v-else>未付款</span>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-primary" @click="openDetail(item)">詳情</button>
+                        <td class="">
+                            <button type="button" class="btn btn-main rounded-0" @click="openDetail(item)">詳情</button>
                         </td>
                     </tr>
                 </tbody>

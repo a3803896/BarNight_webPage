@@ -1,5 +1,5 @@
 <template>
-    <div class="product pt-3 pb-3 pt-lg-5 pb-lg-5">
+    <div class="product py-3 py-lg-4">
         <div class="container">
             <!-- <div class="card mt-5" style="width: 300px;">
                 <img :src="product.imageUrl" alt="" class="card-img-top">

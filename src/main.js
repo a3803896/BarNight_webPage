@@ -8,7 +8,7 @@ import VueAxios from 'vue-axios'
 import 'bootstrap'
 import jQuery from 'jquery'
 import { ValidationProvider, ValidationObserver, configure, extend, localize } from 'vee-validate'
-import { email, min, integer } from 'vee-validate/dist/rules'
+import { email, min, integer, numeric } from 'vee-validate/dist/rules'
 // eslint-disable-next-line camelcase
 import zh_TW from 'vee-validate/dist/locale/zh_TW.json'
 window.$ = window.jQuery = jQuery
@@ -68,6 +68,7 @@ extend('required', {
 extend('email', email)
 extend('min', min)
 extend('integer', integer)
+extend('numeric', numeric)
 configure(config)
 localize('zh_TW', zh_TW)
 // 加入藍圖

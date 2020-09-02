@@ -13,7 +13,7 @@
             </div>
           </nav>
         </div>
-        <router-view></router-view>
+        <router-view class="bg-white"></router-view>
     </div>
 </template>
 

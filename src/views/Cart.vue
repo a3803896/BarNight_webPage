@@ -1,60 +1,6 @@
 <template>
   <div class="cart">
     <div class="container">
-        <!-- <div class="col-9">
-          <table class="table text-white">
-            <tbody>
-              <tr v-for="item in cartProducts" :key="item.product.id">
-                <td>
-                  <button
-                    type="button"
-                    class="btn btn-outline-danger d-flex p-1"
-                    @click.prevent="deleteCart(item)"
-                  >
-                    <span class="material-icons">delete_forever</span>
-                  </button>
-                </td>
-                <td>{{ item.product.title }}</td>
-                <td>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <button
-                        type="button"
-                        class="btn btn-outline-primary d-flex align-items-center p-0 pl-1 pr-1"
-                        @click.prevent="editCart('minus',item)"
-                      >
-                        <span class="material-icons">remove</span>
-                      </button>
-                    </div>
-                    <span class="p-2 pl-3 pr-3">{{ item.quantity }}</span>
-                    <div class="input-group-append">
-                      <button
-                        type="button"
-                        class="btn btn-outline-primary d-flex align-items-center p-0 pl-1 pr-1"
-                        @click.prevent="editCart('plus',item)"
-                      >
-                        <span class="material-icons">add</span>
-                      </button>
-                    </div>
-                  </div>
-                </td>
-                <td>{{ item.product.unit }}</td>
-                <td>{{ item.product.price }}</td>
-                <td class="text-right">{{ item.quantity*item.product.price }}</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="text-right">總計：</td>
-                <td class="text-right bold" id="totalPrice"></td>
-              </tr>
-            </tfoot>
-          </table>
-        </div> -->
       <form class="pt-3 pb-3 pt-lg-4 pb-lg-4">
         <validation-observer v-slot="{ invalid }">
           <div class="d-flex justify-content-end">
@@ -175,7 +121,7 @@
           </div>
         </validation-observer>
       </form>
-      <!-- <pagination :inner-pagination="pagination" @change-page="getCart"></pagination> -->
+      <pagination :inner-pagination="pagination" @change-page="getCart"></pagination>
     </div>
     <loading :active.sync="isLoading"></loading>
   </div>

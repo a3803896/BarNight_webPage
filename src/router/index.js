@@ -49,6 +49,11 @@ const routes = [
         path: 'check_detail/:id',
         name: '單一訂單詳情',
         component: () => import('../views/Check_detail.vue')
+      },
+      {
+        path: 'done',
+        name: '單一訂單詳情',
+        component: () => import('../views/Done.vue')
       }
     ]
   },

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="products container">
+    <div class="products container py-3">
       <div class="card-columns" id="productList">
         <div class="card mb-4" v-for="(item) in products" :key="item.id">
           <div class=" position-relative">

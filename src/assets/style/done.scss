@@ -1,0 +1,40 @@
+.done {
+    height: calc(100vh - 119.27px);
+    .doneText {
+        margin-top: -50px;
+    }
+
+    h2 {
+        text-align: center;
+        @include lg-width {
+            text-align-last: left;
+            font-size: 48px;
+        }
+    }
+
+    h5 {
+        text-align: center;
+        font-size: 16px;
+        @include md-width {
+            text-align-last: left;
+            font-size: 1.25rem;
+        }
+    }
+
+    a {
+        width: 100%;
+        @include lg-width {
+            width: 50%;
+        }
+        @include xl-width {
+            width: 40%;
+        }
+    }
+}
+.doneBg {
+    background: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/RdXFrqa3rkd6SqkGUJzwE4PzPdfT3hNWBJhWsXCGFlnhYVLHbe8a6LRlcfZQO9OH3PE7JzGyXSqLsvky2atJo1vDxsfe7jOzRnjvqeQO9AhAA1b2D0ku6mQT14X5UQrU.jpg') center;
+    background-size: cover;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
