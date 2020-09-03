@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container checkDetail pb-4">
+        <div class="container checkDetail pb-5">
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-end border-bottom pb-3 pt-1 text-white noto">
@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center pt-3">
+            <div class="row justify-content-center pt-3 pb-2">
                 <div class="col-12 col-lg-8">
                     <table class="table table-hover table-borderless table-dark noto">
                         <thead class="border-bottom">
@@ -69,13 +69,13 @@
                             </p>
                             <p class="mb-2">訂單備註：{{ order.message }}</p>
                             <p class="mb-2" v-show="order.paid">付款時間：{{ order.paid_diff }}</p>
-                            <button type="button" class="btn btn-outline-main d-flex" v-if="order.paid" disabled>
+                            <button type="button" class="btn btn-outline-main d-flex mb-3" v-if="order.paid" disabled>
                                 已付款
                                 <span class="material-icons ml-1">
                                 thumb_up
                                 </span>
                             </button>
-                            <button type="button" class="btn btn-main mr-2 mb-2 rounded-0
+                            <button type="button" class="btn btn-main mb-2 rounded-0
                             " v-else data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">去付款</button>
                             <div class="collapse" id="collapseExample">
                                 <div class="bg-white p-3 text-black rounded">

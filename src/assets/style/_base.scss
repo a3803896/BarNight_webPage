@@ -50,6 +50,7 @@ h1,h2,h3,h4,h5,a{
 .black{
     font-weight: 900;
 }
+body,
 .noto{
     font-family: 'Noto Sans TC', sans-serif;
 }
@@ -70,6 +71,10 @@ h1,h2,h3,h4,h5,a{
     position: relative;
     z-index: 10;
 }
+.z-5{
+    position: relative;
+    z-index: 5;
+}
 
 .vertical{
     writing-mode: vertical-lr 
@@ -82,9 +87,22 @@ h1,h2,h3,h4,h5,a{
 .w-70 {
     width: 70%;
 }
+.w-80 {
+    width: 80%;
+}
+.w-90 {
+    width: 90%;
+}
+.w-95 {
+    width: 95%;
+}
 
 .p-md-32 {
     @include md-width{
         padding: 32px !important;
     }
+}
+
+.fz16 {
+    font-size: 16px;
 }

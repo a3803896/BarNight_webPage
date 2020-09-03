@@ -1,8 +1,8 @@
 <template>
-  <div class="container check">
+  <div class="container check py-3 pb-5 pb-sm-0">
     <div class="row">
       <div class="col-12">
-        <table class="table table-hover table-borderless table-dark noto mt-4 text-white ">
+        <table class="table table-hover table-borderless table-dark noto text-white ">
                 <thead class="border-bottom">
                     <tr>
                         <th class="d-none d-md-block">
@@ -56,7 +56,6 @@
             <loading :active.sync="isLoading"></loading>
       </div>
     </div>
-
   </div>
 </template>
 

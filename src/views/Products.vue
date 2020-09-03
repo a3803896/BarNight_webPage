@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="products container py-3">
+    <div class="products container pt-3 pb-5 pb-md-3">
       <div class="card-columns" id="productList">
         <div class="card mb-4" v-for="(item) in products" :key="item.id">
           <div class=" position-relative">
@@ -20,7 +20,7 @@
           </div> -->
         </div>
       </div>
-      <pagination :inner-pagination="pagination" @change-page="getProduct"></pagination>
+      <pagination :inner-pagination="pagination" @change-page="getProduct" class=""></pagination>
     </div>
     <loading :active.sync="isLoading"></loading>
   </div>

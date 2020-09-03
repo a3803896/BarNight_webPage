@@ -1,14 +1,6 @@
 <template>
-    <div class="product py-3 py-lg-4">
+    <div class="product py-3 pb-5 py-md-4">
         <div class="container">
-            <!-- <div class="card mt-5" style="width: 300px;">
-                <img :src="product.imageUrl" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h2>{{ product.title }}</h2>
-                    <p>商品內容：{{ product.description }}</p>
-                    <p>價格：{{ product.price }}元</p>
-                </div>
-            </div> -->
             <div class="row flex-nowrap flex-column flex-lg-row">
               <div class="col-lg-8">
                 <div class="">

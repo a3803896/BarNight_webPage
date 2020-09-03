@@ -1,0 +1,87 @@
+.aboutBg {
+    background: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/qjUKgSN6tiFYUHFJzlUksVRiggTiLQBK7l00gJkbqf9FztqSGJPxS3pzwo4b9d2g8QOPuwDPL6zrSuBT1nUYEptfkX4MGXiZnAmoAKmKJ7dstb3g0CJF55tYm4T8kdR9.jpg') center;
+    background-size: cover;
+    padding-top: 165px;
+    padding-bottom: 165px;
+    @include lg-width {
+        background-position: 0 0;
+        padding-top: 250px;
+        padding-bottom: 250px;
+    }
+    @include xl-width {
+        background-position: 0 56%;
+        padding-top: 290px;
+        padding-bottom: 290px;
+    }
+    p {
+        font-size: 18px;
+        @include lg-width {
+            font-size: 36px;
+        }
+    }
+    h5 {
+        @include lg-width {
+            font-size: 64px;
+        }
+    }
+}
+
+.infomation {
+    .material-icons {
+        font-size: 80px;
+    }
+}
+
+.myCard {
+    width: 72%;
+    @include md-width {
+        width: 48%;
+    }
+    @include lg-width {
+        width: 23%;
+    }
+}
+
+.recommend {
+    img {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+        filter: grayscale(0.1) brightness(0.7);
+        @include md-width {
+            height: 200px;
+        }
+        @include lg-width {
+            height: 320px;
+            width: 60%;
+            filter:unset;
+        }
+    }
+    h4 {
+        font-size: 24px;
+        position: absolute;
+        z-index: 5;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include md-width {
+            font-size: 32px;
+        }
+        @include lg-width {
+            position: relative;
+            top:unset;
+            left: unset;
+            transform: unset;
+            font-size: 48px;
+            width: 100%;
+        }
+    }
+}
+.hoverColor {
+    @include xl-width {
+        filter: grayscale(1) !important;
+        &:hover {
+            filter: unset !important;
+        }
+    }
+}
