@@ -56,6 +56,7 @@ export default {
       this.axios.post(url, product)
         .then(res => {
           console.log(res)
+          this.$bus.$emit('get-cart')
           this.isLoading = false
         })
         .catch(() => {

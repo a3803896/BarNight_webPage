@@ -1,5 +1,5 @@
 <template>
-  <div class="cart">
+  <div class="cart pb-3">
     <div class="container">
       <form class="pt-3 pb-3 pt-lg-4 pb-lg-4">
         <validation-observer v-slot="{ invalid }">
