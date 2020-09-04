@@ -51,22 +51,50 @@
                 </div>
             </div>
         </section>
-        <section class="recommend">
+        <section class="recommend mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="position-relative mb-2 d-lg-flex align-items-center">
+                        <div class="position-relative mb-2 mb-lg-4 d-lg-flex align-items-center">
                             <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/wNL4CZB0wmieHVIdG7vbGEqnDK7ZVqsh1g0CEKF6ZjePAdXrfp4OwtkYI8cjwG810CRRgqllvc3iWbNyQ73Jym76DzCGgkrY5Gx8gwMWcLZCKw4XwBMzXXjGZG2hryzY.jpg" alt="">
                             <h4 class="text-center">潔 淨 的 環 境</h4>
                         </div>
-                        <div class="position-relative mb-2 d-lg-flex flex-lg-row-reverse align-items-center">
+                        <div class="position-relative mb-2 mb-lg-4 d-lg-flex flex-lg-row-reverse align-items-center">
                             <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/UDg82WwrKixK4nfbKNkJnYHMR3jEml6qex1iJVCYv6IgvWIJhPaWz1lakmeLGMbFmCS73vV3GH0qyXYzE7CtnZoREr93bhv0gEi9gwDfvX763aoXYWX7ZrhPDEwhu0Ed.jpg" alt="" class="hoverColor">
                             <h4 class="text-center">多 樣 的 藏 酒</h4>
                         </div>
-                        <div class="position-relative mb-2 d-lg-flex align-items-center">
+                        <div class="position-relative mb-2 mb-lg-4 d-lg-flex align-items-center">
                             <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Mhh0YJHYamk3qO0i9xiyEMzVOgiN8AnhYPbUf1Dbdlm5NcLYYilTTjNEOccjxUVzz5iVYBmbVz2Tf8M48VUZL6muxTAX5M7ew1VWOi0APVe2v1omcPW5WuJlZEwRH7GH.jpg" alt="">
                             <h4 class="text-center">一 流 的 技 術</h4>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <h4 class="text-center mb-3">聯絡我們</h4>
+                        <p class="mb-3">我們相當重視您的意見，若您有任何疑問，可先參考「常見問題」，若仍有任何問題，請填妥以下資料，我們會在近期與您聯繫。</p>
+                        <form class="form-group">
+                            <label for="contactName" class="mb-0">姓名</label>
+                            <input type="text" id="contactName" class="form-control mb-3" name="contactName">
+                            <label for="contactTel" class="mb-0">連絡電話</label>
+                            <input type="tel" id="contactTel" class="form-control mb-3" name="contactTel">
+                            <label for="contactEmail" class="mb-0">電子郵件</label>
+                            <input type="email" id="contactEmail" class="form-control mb-3" name="contactEmail">
+                            <label for="opinion" class="mb-0">給賣家的意見</label>
+                            <textarea name="opinion" id="opinion" rows="3" class="form-control mb-4"></textarea>
+                            <div class="d-flex align-items-center">
+                                <input type="checkbox" id="agree" class="mr-2">
+                                <label for="agree" name="agree" class="mb-0">我同意隱私權政策，並同意依隱私權政策中所述的方式處理自己的資料。</label>
+                            </div>
+                            <div class="text-center pt-5">
+                                <button type="submit" class="btn btn-main">確認送出</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
