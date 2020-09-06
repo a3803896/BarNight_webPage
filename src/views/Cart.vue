@@ -79,6 +79,7 @@
                       name="優惠券編號"
                       class="form-control mb-2"
                       :class="classes"
+                      placeholder="輸入9999獲得九折優惠"
                     />
                     <span class="invalid-feedback">{{ errors[0] }}</span>
                   </validation-provider>

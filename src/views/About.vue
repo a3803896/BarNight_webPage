@@ -76,7 +76,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-8">
                         <h4 class="text-center mb-3">聯絡我們</h4>
-                        <p class="mb-3">我們相當重視您的意見，若您有任何疑問，可先參考「常見問題」，若仍有任何問題，請填妥以下資料，我們會在近期與您聯繫。</p>
+                        <p class="mb-3">我們相當重視您的意見，若您有任何疑問，請填妥以下資料，我們會在近期與您聯繫。</p>
                         <form class="form-group">
                             <label for="contactName" class="mb-0">姓名</label>
                             <input type="text" id="contactName" class="form-control mb-3" name="contactName">
