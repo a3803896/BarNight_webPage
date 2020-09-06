@@ -63,8 +63,8 @@
                             <p class="mb-2">付款方式：{{ order.payment }}</p>
                             <p class="mb-2" v-if="order.paid">付款狀態：已付款</p>
                             <p class="mb-2" v-else>付款狀態：未付款</p>
-                            <p class="mb-2">優惠券：
-                                <span v-if="coupon">{{ coupon.title }} {{ coupon.percent }}%OFF</span>
+                            <p class="mb-2 text-main">優惠券：
+                                <span v-if="coupon">{{ coupon.title }}</span>
                                 <span v-else>無</span>
                             </p>
                             <p class="mb-2">訂單備註：{{ order.message }}</p>

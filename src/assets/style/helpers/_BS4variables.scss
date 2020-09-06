@@ -17,6 +17,7 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
 $main:#ee7631;
+$sub:#686465;
 
 $grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -794,25 +795,25 @@ $pagination-padding-y-lg: .75rem !default;
 $pagination-padding-x-lg: 1.5rem !default;
 $pagination-line-height: 1.25 !default;
 
-$pagination-color: $link-color !default;
-$pagination-bg: $white !default;
-$pagination-border-width: $border-width !default;
-$pagination-border-color: $gray-300 !default;
+$pagination-color: white !default;
+$pagination-bg: $sub !default;
+$pagination-border-width: unset !default;
+$pagination-border-color: unset !default;
 
-$pagination-focus-box-shadow: $input-btn-focus-box-shadow !default;
+$pagination-focus-box-shadow: white !default;
 $pagination-focus-outline: 0 !default;
 
-$pagination-hover-color: $link-hover-color !default;
-$pagination-hover-bg: $gray-200 !default;
-$pagination-hover-border-color: $gray-300 !default;
+$pagination-hover-color: white !default;
+$pagination-hover-bg: $main !default;
+$pagination-hover-border-color: unset !default;
 
 $pagination-active-color: $component-active-color !default;
-$pagination-active-bg: $component-active-bg !default;
-$pagination-active-border-color: $pagination-active-bg !default;
+$pagination-active-bg: $main !default;
+$pagination-active-border-color: unset !default;
 
-$pagination-disabled-color: $gray-600 !default;
-$pagination-disabled-bg: $white !default;
-$pagination-disabled-border-color: $gray-300 !default;
+$pagination-disabled-color: white !default;
+$pagination-disabled-bg: $sub !default;
+$pagination-disabled-border-color: unset !default;
 
 
 // Jumbotron

@@ -71,8 +71,21 @@
                     <option value="GooglePay">GooglePay</option>
                   </select>
 
+                  <validation-provider rules="numeric" v-slot="{ errors, classes }">
+                    <label for="text" class="mb-1 bold">優惠券</label>
+                    <input
+                      v-model="coupon"
+                      type="text"
+                      name="優惠券編號"
+                      class="form-control mb-2"
+                      :class="classes"
+                    />
+                    <span class="invalid-feedback">{{ errors[0] }}</span>
+                  </validation-provider>
+
                   <label for="msgForSeller" class="mb-1 bold">留言給賣家</label>
-                  <textarea v-model="form.message" name="給賣家的話" id="msgForSeller" rows="2" class="form-control"></textarea>
+                  <textarea v-model="form.message" name="給賣家的話" id="msgForSeller" rows="2" class="form-control mb-3"></textarea>
+
             </div>
             <div class="col-12 col-md-8 col-lg-8">
               <div class="cartCard d-flex mb-3" v-for="item in cartProducts" :key="item.product.id">
@@ -135,6 +148,7 @@ export default {
       cartProducts: [],
       pagination: {},
       isLoading: false,
+      coupon: '',
       form: {
         name: '',
         email: '',
@@ -155,6 +169,7 @@ export default {
       this.axios
         .get(url)
         .then((res) => {
+          this.$bus.$emit('get-cart')
           let totalPrice = 0
           this.cartProducts = res.data.data
           this.pagination = res.data.meta.pagination
@@ -223,17 +238,26 @@ export default {
     sendOrder () {
       this.isLoading = true
       const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/orders`
-      this.axios.post(url, this.form).then((res) => {
-        this.getCart()
-        this.form = {
-          name: '',
-          email: '',
-          tel: '',
-          address: '',
-          payment: '',
-          message: ''
-        }
-      })
+      if (this.coupon !== '') {
+        this.form.coupon = this.coupon
+      }
+      this.axios.post(url, this.form)
+        .then((res) => {
+          this.getCart()
+          this.form = {
+            name: '',
+            email: '',
+            tel: '',
+            address: '',
+            payment: '',
+            message: ''
+          }
+          this.coupon = ''
+        })
+        .catch((err) => {
+          alert(err)
+          this.getCart()
+        })
     }
   }
 }
