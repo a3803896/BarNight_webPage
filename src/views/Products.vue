@@ -1,18 +1,31 @@
 <template>
   <div>
     <div class="products container pt-3 pb-5 pb-md-3">
-      <div class="card-columns" id="productList">
-        <div class="card mb-4" v-for="(item) in products" :key="item.id">
-          <div class=" position-relative">
-              <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)"/>
-              <button type="button" class="addCart position-absolute btn btn-outline-main noto rounded-pill d-flex" @click="addCart(item)"><i class="material-icons">shopping_cart</i></button>
-          </div>
-          <div class="card-body p-3 bg-dark">
-              <a class="card-title text-main h4 bold mb-2 noto" @click.prevent="openProduct(item)">{{ item.title }}</a>
-              <div class="">
-                  <span class="h5 mb-0 mr-2 text-white bold">NT${{ item.price }}元</span>
-                  <strike class="text-sub bold">NT${{ item.price }}元</strike>
+      <div class="row">
+        <div class="col-lg-3">
+          <ul class="card-nav d-flex flex-wrap d-lg-block bg-dark list-unstyled border border-main">
+            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('all')">所有產品</a></li>
+            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('food')">餐點</a></li>
+            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('cocktail')">調酒</a></li>
+            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('soft')">無酒精</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-9">
+          <div class="card-columns" id="productList">
+            <div class="card mb-4" v-for="(item) in products" :key="item.id" :data-category="item.category">
+              <div class="position-relative">
+                  <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)"/>
+                  <button type="button" class="addCart position-absolute btn btn-outline-main noto rounded-pill d-flex" @click="addCart(item)"><i class="material-icons">shopping_cart</i></button>
+                  <p class="h4 mb-0 text-white">{{ item.category }}</p>
               </div>
+              <div class="card-body p-3 bg-dark">
+                  <a class="card-title text-main h4 bold mb-2 noto" @click.prevent="openProduct(item)">{{ item.title }}</a>
+                  <div class="">
+                      <span class="h5 mb-0 mr-2 text-white bold">NT${{ item.price }}元</span>
+                      <strike class="text-sub bold">NT${{ item.price }}元</strike>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -38,7 +51,7 @@ export default {
   methods: {
     getProduct (page) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/products?page=${page}`
+      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/products?page=${page}&orderBy=category`
       this.axios
         .get(url)
         .then((res) => {
@@ -71,6 +84,33 @@ export default {
           alert('購物車內已有此商品')
           this.isLoading = false
         })
+    },
+    toggle (para) {
+      document.querySelectorAll('.card-columns .card').forEach((item) => {
+        item.style.display = 'none'
+      })
+      switch (para) {
+        case 'all':
+          document.querySelectorAll('.card-columns .card').forEach((item) => {
+            item.style.display = 'inline-block'
+          })
+          break
+        case 'food':
+          document.querySelectorAll('.card[data-category="餐點"]').forEach((item) => {
+            item.style.display = 'inline-block'
+          })
+          break
+        case 'cocktail':
+          document.querySelectorAll('.card[data-category="調酒"]').forEach((item) => {
+            item.style.display = 'inline-block'
+          })
+          break
+        case 'soft':
+          document.querySelectorAll('.card[data-category="無酒精"]').forEach((item) => {
+            item.style.display = 'inline-block'
+          })
+          break
+      }
     }
   }
 }
