@@ -5,7 +5,7 @@
                 <div class="col-12 no-p15">
                     <div class="aboutBg d-flex justify-content-center">
                         <div class="text-right">
-                            <p class="text-white noto bold">Bar Night 夜吧</p>
+                            <p class="text-white noto bold">Bar Night <span class="text-main">夜吧</span></p>
                             <h5 class="text-white noto bold">專心致志，為您獻上完美的一杯</h5>
                         </div>
                     </div>

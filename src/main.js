@@ -12,8 +12,12 @@ import { email, min, integer, numeric } from 'vee-validate/dist/rules'
 // eslint-disable-next-line camelcase
 import zh_TW from 'vee-validate/dist/locale/zh_TW.json'
 import pagination from '../src/components/pagination.vue'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 window.$ = window.jQuery = jQuery
 Vue.prototype.$bus = new Vue()
+// ..
+AOS.init()
 
 // 元件
 Vue.component('Loading', Loading)

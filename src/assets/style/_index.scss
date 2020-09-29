@@ -41,8 +41,15 @@ footer {
     height: 100%;
     background: rgba(0, 0, 0, 0.35);
     @include xl-width {
-        background: rgba(0, 0, 0, 0.15);
+        // background: rgba(0, 0, 0, 0.15);
+        animation: 4s ease 0s normal forwards 1 fadein;
+        animation-iteration-count: infinite;
     }
+    @keyframes fadein{
+    0% { opacity:0.9; }
+    50% { opacity:0.2; }
+    100% { opacity:0.9; }
+}
 }
 
 .navBar{

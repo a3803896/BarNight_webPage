@@ -63,3 +63,13 @@
         left: 16px;
     }
 }
+.scroll {
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    z-index: 9;
+    @include sm-width {
+        right: 50px;
+        bottom:60px;
+    }
+}

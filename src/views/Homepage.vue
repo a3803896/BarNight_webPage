@@ -9,39 +9,38 @@
             </div>
             <!-- 文字 -->
             <div class="container">
-                <div class="col-12 col-xl-4 no-p15 intro">
+                <div class="col-12 col-xl-4 no-p15 intro" data-aos="fade-right" data-aos-delay="800">
                     <h2 class="enIntro marker mb-3">Bar Night,<br>elegant night.</h2>
                     <h2 class="chIntro noto bold mb-2">調酒、美食、寧靜之夜</h2>
-                    <!-- <h2 class="chIntro noto bold">在喧囂間短暫的自我放逐</h2> -->
                     <h2 class="chIntro noto bold">在喧囂的塵世裡沉澱心情</h2>
                 </div>
             </div>
         </div>
-        <main class="container">
+        <main class="container overflow-hidden">
             <div class="mb-5 row d-flex justify-content-lg-center">
                 <div class="col-12 col-lg-12 d-md-flex flex-md-wrap justify-content-md-between">
                     <div class="card border-0 mb-4 flex-lg-row">
-                        <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/02r2dZonYIGObMXF6MbCPvMqdq1BOAZuNBQLWxa9Hf6ey3ntUI8GmNRtss7Kx0KEMnYpZrAO6Dx98tiG4t0Bg9VAI9jdeBLndcyFaejCipTEdMAgRErwawRSernYXiFw.jpg" class="clippy-reverse card-img-top position-60 trans" alt="">
+                        <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/02r2dZonYIGObMXF6MbCPvMqdq1BOAZuNBQLWxa9Hf6ey3ntUI8GmNRtss7Kx0KEMnYpZrAO6Dx98tiG4t0Bg9VAI9jdeBLndcyFaejCipTEdMAgRErwawRSernYXiFw.jpg" class="clippy-reverse card-img-top position-60 trans" data-aos="fade-right" data-aos-offset="400" data-aos-once="true" alt="">
                         <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
-                            <h3 class="card-text text-white bold noto">專業調酒師為您調製多樣化的調酒，酸甜輕重 隨你所欲。</h3>
+                            <h3 class="card-text text-white bold noto">專業調酒師為您調製多樣化的調酒，口感從酸到甜、酒感從輕到重，都可為您量身調製。</h3>
                         </div>
                     </div>
                     <div class="card border-0 mb-4 flex-lg-row-reverse">
-                        <img src="https://imgur.com/iD4IZKM.jpg" class="clippy card-img-top position-74 trans" alt="">
+                        <img src="https://imgur.com/iD4IZKM.jpg" class="clippy card-img-top position-74 trans" data-aos="fade-left" data-aos-offset="400" data-aos-once="true" alt="">
                         <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
-                            <h3 class="card-text text-white bold noto">每日採買新鮮食材及調酒原料，讓您喝得開心、也喝得安心。</h3>
+                            <h3 class="card-text text-white bold noto">每日採買新鮮食材及調酒原料，六大基酒皆選用知名品牌，水果、花香、茶香、蜜餞等原料皆為手工調製。</h3>
                         </div>
                     </div>
                     <div class="card border-0 mb-4 flex-lg-row">
-                        <img src="https://imgur.com/bM7kc1X.jpg" class="clippy-reverse card-img-top position-90 trans" alt="">
+                        <img src="https://imgur.com/bM7kc1X.jpg" class="clippy-reverse card-img-top position-90 trans" data-aos="fade-right" data-aos-offset="400" data-aos-once="true" alt="">
                         <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
-                            <h3 class="card-text text-white bold noto">全店使用 3M 廚下淨水系統，從飲用水到冰塊皆純淨無瑕。</h3>
+                            <h3 class="card-text text-white bold noto">調酒最重要的元素就是水。全店使用 3M 廚下淨水系統，從飲用水到冰塊皆純淨無瑕，同時保留水中的微量元素。</h3>
                         </div>
                     </div>
                     <div class="card border-0 flex-lg-row-reverse">
-                        <img src="https://imgur.com/BPhrxt9.jpg" class="clippy card-img-top trans" alt="">
+                        <img src="https://imgur.com/BPhrxt9.jpg" class="clippy card-img-top trans" data-aos="fade-left" data-aos-offset="400" data-aos-once="true" alt="">
                          <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
-                            <h3 class="card-text text-white bold noto">最頂級的食材配上最頂尖的手藝，多道美味的餐點任君挑選。</h3>
+                            <h3 class="card-text text-white bold noto">每日採買最新鮮最頂級的食材，配上本店主廚最頂尖的手藝，讓您品飲的同時也能填飽肚子。</h3>
                         </div>
                     </div>
                 </div>
