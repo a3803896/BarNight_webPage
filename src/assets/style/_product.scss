@@ -8,8 +8,9 @@
             font-size: 2rem;
         }
     }
-    p {
+    p { 
         font-size: 18px;
+        line-height: 1.4;
         @include lg-width {
             font-size: 1.25rem;
         }
