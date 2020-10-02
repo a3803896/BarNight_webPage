@@ -71,7 +71,16 @@
                 </div>
             </div>
         </section>
-        <section class="contact">
+        <div class="white-texture overflow-hidden py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <swiper></swiper>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="contact py-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-8">

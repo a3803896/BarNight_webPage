@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import swiper from './components/Swiper.vue'
+import introswiper from './components/Intro-swiper.vue'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import axios from 'axios'
@@ -9,6 +11,9 @@ import 'bootstrap'
 import jQuery from 'jquery'
 import { ValidationProvider, ValidationObserver, configure, extend, localize } from 'vee-validate'
 import { email, min, integer, numeric } from 'vee-validate/dist/rules'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import '../node_modules/swiper/swiper-bundle.css'
+
 // eslint-disable-next-line camelcase
 import zh_TW from 'vee-validate/dist/locale/zh_TW.json'
 import pagination from '../src/components/pagination.vue'
@@ -22,6 +27,8 @@ AOS.init()
 // 元件
 Vue.component('Loading', Loading)
 Vue.component('pagination', pagination)
+Vue.component('swiper', swiper)
+Vue.component('intro-swiper', introswiper)
 
 // 驗證元件
 Vue.component('ValidationObserver', ValidationObserver)
@@ -49,7 +56,7 @@ configure(config)
 localize('zh_TW', zh_TW)
 // 加入藍圖
 Vue.use(VueAxios, axios)
-
+Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 
 new Vue({

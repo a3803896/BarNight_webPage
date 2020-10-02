@@ -16,11 +16,20 @@
                 </div>
             </div>
         </div>
-        <main class="container overflow-hidden">
-            <div class="mb-5 row d-flex justify-content-lg-center">
+        <div class="white-texture">
+            <div class="container pt-5 pb-5 overflow-hidden">
+                <div class="row">
+                    <div class="col-12">
+                        <intro-swiper></intro-swiper>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main class="container overflow-hidden py-5">
+            <div class="row d-flex justify-content-lg-center">
                 <div class="col-12 col-lg-12 d-md-flex flex-md-wrap justify-content-md-between">
                     <div class="card border-0 mb-4 flex-lg-row">
-                        <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/02r2dZonYIGObMXF6MbCPvMqdq1BOAZuNBQLWxa9Hf6ey3ntUI8GmNRtss7Kx0KEMnYpZrAO6Dx98tiG4t0Bg9VAI9jdeBLndcyFaejCipTEdMAgRErwawRSernYXiFw.jpg" class="clippy-reverse card-img-top position-60 trans" data-aos="fade-right" data-aos-offset="400" data-aos-once="true" alt="">
+                        <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/oxZvIQttAssTicPrF0XTqYZJKHu49WRjoUL90Ug7pNlujSGgmkR3arWQyG52luBYCORQAj4GG0hBleHMq6E45dZXPhY3Vfrb7kkVS9j7encqsfog0pWRYqTKXmnSd7Ny.jpg" class="clippy-reverse card-img-top position-60 trans" data-aos="fade-right" data-aos-offset="400" data-aos-once="true" alt="">
                         <div class="card-body p-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
                             <h3 class="card-text text-white bold noto">專業調酒師為您調製多樣化的調酒，口感從酸到甜、酒感從輕到重，都可為您量身調製。</h3>
                         </div>
@@ -46,19 +55,11 @@
                 </div>
             </div>
         </main>
-        <div class="white-texture">
-            <div class="container pt-5 pb-5">
+        <div class="white-texture overflow-hidden py-5">
+            <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="bartender pl-lg-5 p-3 d-flex flex-column justify-content-between position-relative">
-                            <h3 class="text-white z-10 noto text-right">「沒有人的溫暖，</h3>
-                            <h3 class="text-white z-10 noto m-0 vertical align-self-end">就稱不上是酒吧。」</h3>
-                            <div class="pl-lg-5">
-                                <p class="text-white z-10 noto">本店監製：2019年台灣十大調酒師</p>
-                                <h2 class="marker text-main z-10 bold">JESSICA WANG</h2>
-                            </div>
-                            <div class="bartenderOpacity position-absolute"></div>
-                        </div>
+                        <swiper></swiper>
                     </div>
                 </div>
             </div>
