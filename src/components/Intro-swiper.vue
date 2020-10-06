@@ -12,10 +12,23 @@
             </div>
         </swiper-slide>
         <swiper-slide>
-          <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/peJHmnODXcajJH9otB3HKk82YxgLTKEHNzJggW3GJF6MTj3HRShuN224FbGEZ4xGhlY6ADl8E3BJV58COtggbUe8lnfzCsariAklBESrOmKDCZ6Eg4fmpgnpXrKzE3z2.jpg" class="intro-swiper-img w-100 obj-cov filter-brightness" alt="">
+          <div class="position-relative">
+            <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/peJHmnODXcajJH9otB3HKk82YxgLTKEHNzJggW3GJF6MTj3HRShuN224FbGEZ4xGhlY6ADl8E3BJV58COtggbUe8lnfzCsariAklBESrOmKDCZ6Eg4fmpgnpXrKzE3z2.jpg" class="intro-swiper-img w-100 obj-cov filter-brightness" alt="">
+            <div class="w-100 slogan position-absolute text-white text-center bold">
+              <p>無論是與朋友一同飲酒歡慶</p>
+              <p>或是孤身一人獨自啜飲放空</p>
+              <p>在這裡，你都能找到適合的位置</p>
+            </div>
+          </div>
         </swiper-slide>
         <swiper-slide>
-          <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/7961hVz27y6obAHiptu1UXWMMWfQM7ERTlZ6meJtK0rXckMx0eWnXgQXjGAQUj1tnah7rlK4E7uFWk2bH7qFK4805ICAY6xHR6ENlnlE4Uh4sZ0VD98JetRnJY1UUiub.jpg" class="intro-swiper-img w-100 obj-cov filter-brightness filter-grayscale obj-pos" alt="">
+          <div class="position-relative">
+            <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/7961hVz27y6obAHiptu1UXWMMWfQM7ERTlZ6meJtK0rXckMx0eWnXgQXjGAQUj1tnah7rlK4E7uFWk2bH7qFK4805ICAY6xHR6ENlnlE4Uh4sZ0VD98JetRnJY1UUiub.jpg" class="intro-swiper-img w-100 obj-cov filter-grayscale obj-pos" alt="">
+            <div class="w-100 py-3 d-flex flex-column align-items-center onSale position-absolute text-white bold">
+              <h4 class="vertical m-0">現正<span class="text-main">特價</span>中！</h4>
+              <p>輸入優惠碼<span class="text-main">「9999」</span>獲得 9 折優惠</p>
+            </div>
+          </div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -35,6 +48,10 @@ export default {
     return {
       swiperOption: {
         spaceBetween: 30,
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false
+        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true

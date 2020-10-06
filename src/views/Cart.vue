@@ -92,12 +92,40 @@
               <div class="cartCard d-flex mb-3" v-for="item in cartProducts" :key="item.product.id">
                 <img :src="item.product.imageUrl[0]" alt="" class="w-25">
                 <div class="w-75 bg-gray p-2 p-lg-3 text-black noto bold d-flex flex-column justify-content-between">
-                    <div>
+                    <div class="mb-2">
                       <h5 class="d-flex justify-content-between align-items-center mb-lg-1">
                       {{ item.product.title }}
                       <i class="pointer material-icons" @click.prevent="deleteCart(item)">clear</i>
                       </h5>
                       <p class="text-sub">NT${{ item.product.price }}</p>
+                    </div>
+                    <div class="d-flex align-items-center mb-2" v-if="item.product.category == '調酒' ">
+                      <label for="" class="mb-0 mr-1 mr-lg-2 mr-xl-3">酒感輕</label>
+                      <input type="range" class="form-control-range mr-1 mr-lg-2 mr-xl-3" id="formControlRange" min="1" max="7" value="4">
+                      <label for="" class="mb-0">重</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-2" v-if="item.product.category == '調酒' ">
+                      <label for="" class="mb-0 mr-1 mr-lg-2 mr-xl-3">口感酸</label>
+                      <input type="range" class="form-control-range mr-1 mr-lg-2 mr-xl-3" id="formControlRange" min="1" max="7" value="4">
+                      <label for="" class="mb-0">甜</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-2" v-if="item.product.category == '餐點' ">
+                      <label for="" class="mb-0 mr-1 mr-lg-2 mr-xl-3">口味鹹</label>
+                      <input type="range" class="form-control-range mr-1 mr-lg-2 mr-xl-3" id="formControlRange" min="1" max="7" value="4">
+                      <label for="" class="mb-0">甜</label>
+                    </div>
+                    <div class="mb-2" v-if="item.product.category == '無酒精' ">
+                      <!-- <label for="" class="mb-0 mr-3">正常冰</label> -->
+                      <input type="range" class="form-control-range mr-3 w-100 mb-2" id="formControlRange" min="1" max="6">
+                      <datalist class="d-flex justify-content-between" >
+                        <option class="vertical bold p-0">熱</option>
+                        <option class="vertical bold p-0">溫</option>
+                        <option class="vertical bold p-0">去冰</option>
+                        <option class="vertical bold p-0">微冰</option>
+                        <option class="vertical bold p-0">少冰</option>
+                        <option class="vertical bold p-0">正常冰</option>
+                      </datalist>
+                      <!-- <label for="" class="mb-0">熱</label> -->
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="input-group">

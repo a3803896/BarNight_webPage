@@ -47,7 +47,7 @@ footer {
     }
     @keyframes fadein{
     0% { opacity:0.9; }
-    50% { opacity:0.2; }
+    50% { opacity:0; }
     100% { opacity:0.9; }
 }
 }
@@ -174,21 +174,11 @@ main .card {
         }
     }
     .card-text {
-        text-align: center;
         @include lg-width {
             text-align: left;
             width: 80%;
         }
     }
-    // .trans {
-    //     @include xl-width {
-    //         transition: 0.3s ease-in-out;
-    //         &:hover {
-    //             transform: scale(1.1);
-    //             transition: 0.3s ease-in-out;
-    //         }
-    //     }
-    // }
     .card-img-top {
         @include lg-width{
             width: 50%;
@@ -227,8 +217,8 @@ main .card {
     -webkit-filter:brightness(.7);
 }
 .filter-grayscale{
-    filter: grayscale(70%);
-    -webkit-filter: grayscale(70%);
+    filter: grayscale(70%) brightness(.7);
+    -webkit-filter: grayscale(70%) brightness(.7);
 }
 
 .obj-pos{
@@ -290,6 +280,40 @@ main .card {
     }
 }
 
+.slogan {
+    top: 20%;
+    font-size: 18px;
+    line-height: 1.8;
+    @include md-width {
+        font-size: 24px;
+    }
+    @include lg-width {
+        font-size: 30px;
+    }
+}
+
+.onSale {
+    background: rgba(0, 0, 0, 0.4);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    line-height: 1.8;
+    @include md-width {
+        font-size: 30px;
+    }
+    @include lg-width {
+        font-size: 36px;
+    }
+    h4{
+        @include md-width {
+        font-size: 32px !important;
+        }
+        @include lg-width {
+            font-size: 38px !important;
+        }
+    }
+}
+
 .infoText{
     padding: 2rem;
     @include sm-width {
@@ -332,4 +356,12 @@ main .card {
     @include xl-width {
         height: 370px;
     }
+}
+.swiper-pagination-bullet{
+    background: #fff !important;
+    opacity: 0.8 !important;
+}
+.swiper-pagination-bullet-active{
+    background: $maincolor !important;
+    opacity: 1 !important;
 }
