@@ -87,7 +87,7 @@
                     </label>
                     <input id="customFile" ref="file" type="file" class="form-control" @change="uploadFile">
                   </div>
-                  <img class="img-fluid" :src="tempProduct.imageUrl[0]" alt />
+                  <img class="img-fluid" :src="tempProduct.imageUrl[0]" alt="上傳照片" />
                 </div>
                 <div class="col-sm-8">
                   <div class="form-group">
@@ -192,6 +192,7 @@ export default {
   data () {
     return {
       isLoading: false,
+      isNew: false,
       token: '',
       products: [],
       tempProduct: {
@@ -214,8 +215,8 @@ export default {
           this.pagination = res.data.meta.pagination
           this.isLoading = false
         })
-        .catch((error) => {
-          alert(error)
+        .catch(() => {
+          $('.alert').removeClass('d-none')
         })
     },
     openModal (isNew, item) {
@@ -224,10 +225,12 @@ export default {
           this.tempProduct = {
             imageUrl: []
           }
+          this.isNew = true
           $('#productModal').modal('show')
           break
 
         case 'edit':
+          this.isNew = false
           this.tempProduct = JSON.parse(JSON.stringify(item))
           $('#productModal').modal('show')
           break
@@ -242,37 +245,21 @@ export default {
       }
     },
     updateProduct () {
-      this.isLoading = true
-      if (Object.prototype.hasOwnProperty.call(this.tempProduct, 'id')) {
-        const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
-        const data = this.tempProduct
-        this.axios.patch(api, data)
-          .then(() => {
-            this.getData()
-            this.isLoading = false
-          })
-          .catch((error) => {
-            alert(error)
-            this.getData()
-          })
-      } else {
-        this.isLoading = true
-        const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/product`
-        const data = this.tempProduct
-        this.axios.post(api, data)
-          .then(() => {
-            this.getData()
-            this.isLoading = false
-          })
-          .catch((error) => {
-            alert(error)
-            this.getData()
-          })
+      let api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/product`
+      let httpMethod = 'post'
+      if (!this.isNew) {
+        api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
+        httpMethod = 'patch'
       }
-      this.tempProduct = {
-        imageUrl: []
-      }
-      $('#productModal').modal('hide')
+      this.axios[httpMethod](api, this.tempProduct).then(() => {
+        $('#productModal').modal('hide')
+        this.isLoading = false
+        this.getData()
+      }).catch(() => {
+        this.isLoading = false
+        $('.alert').removeClass('d-none')
+        $('#productModal').modal('hide')
+      })
     },
     delProduct () {
       this.isLoading = true
@@ -299,8 +286,8 @@ export default {
           document.querySelector('#customFile').value = ''
           this.isLoading = false
         })
-        .catch((err) => {
-          alert(err)
+        .catch(() => {
+          $('.alert').removeClass('d-none')
           this.isLoading = false
           $('#productModal').modal('hide')
         })

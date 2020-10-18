@@ -61,6 +61,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -82,6 +83,10 @@ export default {
         .then((res) => {
           this.orders = res.data.data
           this.pagination = res.data.meta.pagination
+          this.isLoading = false
+        })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
           this.isLoading = false
         })
     },

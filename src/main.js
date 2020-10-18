@@ -27,7 +27,7 @@ AOS.init()
 // 元件
 Vue.component('Loading', Loading)
 Vue.component('Mypagination', Mypagination)
-Vue.component('swiper', productSwiper)
+Vue.component('ProductSwiper', productSwiper)
 Vue.component('intro-swiper', introswiper)
 
 // 驗證元件

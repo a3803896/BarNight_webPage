@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="alert alert-danger rounded-0 alert-dismissible fade show d-none" role="alert">
+      糟了！網站似乎有些狀況！
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="container pt-2">
       <nav class="d-flex justify-content-between pb-3">
         <h2 class="mb-0 mr-3">後台</h2>
@@ -18,6 +24,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -25,19 +32,18 @@ export default {
     }
   },
   created () {
-    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
     // 登入驗證
     const url = `${process.env.VUE_APP_APIPATH}auth/check`
+    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
+    this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
     this.axios.post(url, {
       api_token: this.token
     }).then((res) => {
-      this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
-      // ↑將 Token 加入到 Headers 內
-      this.$router.push('/admin/homepage')
+      // this.$router.push('/admin/homepage')
     })
       .catch(() => {
-        alert('請先登入')
-        this.$router.push('/homepage')
+        $('.alert').removeClass('d-none')
+        this.$router.push('/login')
       })
   },
   methods: {

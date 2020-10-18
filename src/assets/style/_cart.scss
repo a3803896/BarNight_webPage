@@ -8,6 +8,11 @@
       height: 197px;
     }
   }
+  .swiper-img {
+    @include lg-width {
+      height: 330px;
+    }
+  }
 }
 
 .cartCard {

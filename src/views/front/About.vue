@@ -58,19 +58,19 @@
             <div class="position-relative mb-2 mb-lg-4 d-lg-flex align-items-center">
               <img
                 src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/wNL4CZB0wmieHVIdG7vbGEqnDK7ZVqsh1g0CEKF6ZjePAdXrfp4OwtkYI8cjwG810CRRgqllvc3iWbNyQ73Jym76DzCGgkrY5Gx8gwMWcLZCKw4XwBMzXXjGZG2hryzY.jpg"
-                alt="">
+                alt="潔淨的環境">
               <h4 class="text-center">潔 淨 的 環 境</h4>
             </div>
             <div class="position-relative mb-2 mb-lg-4 d-lg-flex flex-lg-row-reverse align-items-center">
               <img
                 src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/UDg82WwrKixK4nfbKNkJnYHMR3jEml6qex1iJVCYv6IgvWIJhPaWz1lakmeLGMbFmCS73vV3GH0qyXYzE7CtnZoREr93bhv0gEi9gwDfvX763aoXYWX7ZrhPDEwhu0Ed.jpg"
-                alt="" class="hoverColor">
+                alt="多樣的藏酒" class="hoverColor">
               <h4 class="text-center">多 樣 的 藏 酒</h4>
             </div>
             <div class="position-relative mb-2 mb-lg-4 d-lg-flex align-items-center">
               <img
                 src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Mhh0YJHYamk3qO0i9xiyEMzVOgiN8AnhYPbUf1Dbdlm5NcLYYilTTjNEOccjxUVzz5iVYBmbVz2Tf8M48VUZL6muxTAX5M7ew1VWOi0APVe2v1omcPW5WuJlZEwRH7GH.jpg"
-                alt="">
+                alt="一流的技術">
               <h4 class="text-center">一 流 的 技 術</h4>
             </div>
           </div>
@@ -81,7 +81,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <swiper></swiper>
+            <ProductSwiper></ProductSwiper>
           </div>
         </div>
       </div>
@@ -93,26 +93,54 @@
             <h4 class="text-center mb-3">聯絡我們</h4>
             <p class="mb-3">我們相當重視您的意見，若您有任何疑問，請填妥以下資料，我們會在近期與您聯繫。</p>
             <form class="form-group">
-              <label for="contactName" class="mb-0">姓名</label>
-              <input type="text" id="contactName" class="form-control mb-3" name="contactName">
-              <label for="contactTel" class="mb-0">連絡電話</label>
-              <input type="tel" id="contactTel" class="form-control mb-3" name="contactTel">
-              <label for="contactEmail" class="mb-0">電子郵件</label>
-              <input type="email" id="contactEmail" class="form-control mb-3" name="contactEmail">
-              <label for="opinion" class="mb-0">給賣家的意見</label>
-              <textarea name="opinion" id="opinion" rows="3" class="form-control mb-4"></textarea>
-              <div class="d-flex align-items-center">
-                <input type="checkbox" id="agree" class="mr-2">
-                <label for="agree" name="agree" class="mb-0">我同意隱私權政策，並同意依隱私權政策中所述的方式處理自己的資料。</label>
-              </div>
-              <div class="text-center pt-5">
-                <button type="submit" class="btn btn-main">確認送出</button>
-              </div>
-            </form>
+              <validation-observer v-slot="{ invalid }">
+                <validation-provider rules="required" v-slot="{ errors, classes }">
+                  <label for="contactName" class="mb-0">姓名</label>
+                  <input v-model="form.name" :class="classes" type="text" id="contactName" class="form-control mb-3" name="姓名">
+                  <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                </validation-provider>
 
+                <validation-provider rules="required|min:8" v-slot="{ errors, classes }">
+                  <label for="contactTel" class="mb-0">連絡電話</label>
+                  <input v-model="form.tel" :class="classes" type="tel" id="contactTel" class="form-control mb-3" name="連絡電話">
+                  <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                </validation-provider>
+
+                <validation-provider rules="required|email" v-slot="{ errors, classes }">
+                  <label for="contactEmail" class="mb-0">電子郵件</label>
+                  <input v-model="form.mail" :class="classes" type="email" id="contactEmail" class="form-control mb-3" name="電子郵件">
+                  <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                </validation-provider>
+
+                <validation-provider rules="required" v-slot="{ errors, classes }">
+                  <label for="message" class="mb-0">給賣家的意見</label>
+                  <textarea v-model="form.message" :class="classes" name="給賣家的意見" id="message" rows="3" class="form-control mb-4"></textarea>
+                  <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                </validation-provider>
+
+                <div class="text-center pt-3">
+                  <button type="submit" class="btn btn-main" :disabled="invalid">確認送出</button>
+                </div>
+              </validation-observer>
+            </form>
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      form: {
+        name: '',
+        email: '',
+        tel: '',
+        message: ''
+      }
+    }
+  }
+}
+</script>

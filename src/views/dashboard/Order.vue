@@ -22,7 +22,7 @@
             <tbody>
               <tr v-for="(item) in order.products" :key="item.product.content">
                 <td class="d-flex align-items-center">
-                  <img :src="item.product.imageUrl[0]" alt="" class="orderImg mr-5">
+                  <img :src="item.product.imageUrl[0]" :alt="item.product.title" class="orderImg mr-5">
                   <p>{{ item.product.title }}</p>
                 </td>
                 <td class="align-middle text-center">
@@ -78,6 +78,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -105,6 +106,10 @@ export default {
           this.coupon = res.data.data.coupon
           this.isLoading = false
         })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+          this.isLoading = false
+        })
     },
     orderPaid () {
       this.isLoading = true
@@ -113,6 +118,10 @@ export default {
         .then((res) => {
           this.getOrder()
         })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+          this.isLoading = false
+        })
     },
     orderUnpaid () {
       this.isLoading = true
@@ -120,6 +129,10 @@ export default {
       this.axios.patch(url)
         .then((res) => {
           this.getOrder()
+        })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+          this.isLoading = false
         })
     }
   }

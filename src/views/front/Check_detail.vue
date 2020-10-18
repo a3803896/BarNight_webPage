@@ -26,7 +26,7 @@
             <tbody>
               <tr v-for="(item) in order.products" :key="item.product.content">
                 <td class="d-flex align-items-center">
-                  <img :src="item.product.imageUrl[0]" alt="" class="checkImg d-none d-md-block mr-2">
+                  <img :src="item.product.imageUrl[0]" alt="item.product.title" class="checkImg d-none d-md-block mr-2">
                   <p>{{ item.product.title }}</p>
                 </td>
                 <td class="align-middle text-center">
@@ -126,6 +126,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -152,6 +153,10 @@ export default {
           this.coupon = res.data.data.coupon
           this.isLoading = false
         })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+          this.isLoading = false
+        })
     },
     checkout () {
       this.isLoading = true
@@ -160,9 +165,10 @@ export default {
         .then(() => {
           this.$router.push('/done')
         })
-        // .catch(() => {
-        //   this.getCheckDetail()
-        // })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+          this.isLoading = false
+        })
     }
   }
 }

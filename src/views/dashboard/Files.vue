@@ -4,7 +4,7 @@
       <div class="col-12">
         <div class="d-flex justify-content-lg-between flex-wrap">
           <div v-for="item in files" :key="item.id" class="card align-self-end mb-3" style="width: 32%;">
-            <img :src="item.path" class="card-img-top">
+            <img :src="item.path" class="card-img-top" alt="商品照片">
             <div class="card-body d-flex justify-content-lg-between">
               <button type="button" class="btn btn-outline-danger" @click.prevent="openFile('delete',item)">刪除</button>
               <button type="button" class="btn btn-info w-75" @click.prevent="openFile('open',item)">查看</button>
@@ -25,7 +25,7 @@
                 </button>
               </div>
               <div class="modal-body d-flex justify-content-center">
-                <img :src="imgPath" alt="">
+                <img :src="imgPath" alt="商品照片">
               </div>
             </div>
           </div>
@@ -89,6 +89,10 @@ export default {
           this.pagination = res.data.meta.pagination
           this.isLoading = false
         })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+          this.isLoading = false
+        })
     },
     openFile (which, item) {
       switch (which) {
@@ -113,6 +117,11 @@ export default {
         .then(() => {
           this.getFiles()
           $('#delFileModal').modal('hide')
+        })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+          $('#delFileModal').modal('hide')
+          this.isLoading = false
         })
     }
   }

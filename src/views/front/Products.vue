@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="productAlert alert alert-danger rounded-0 alert-dismissible fade show d-none" role="alert">
+      購物車內已有此商品！
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="products container pt-3 pb-5 pb-md-3">
       <div class="row">
         <div class="col-lg-2">
@@ -18,7 +24,7 @@
           <div class="card-columns" id="productList">
             <div class="card mb-4" v-for="(item) in products" :key="item.id" :data-category="item.category">
               <div class="position-relative">
-                <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)" />
+                <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)" :alt="item.title" />
                 <button type="button" class="addCart position-absolute btn btn-outline-main noto rounded-pill d-flex"
                   @click="addCart(item)"><i class="material-icons">shopping_cart</i></button>
                 <p class="h4 mb-0 text-white">{{ item.category }}</p>
@@ -44,6 +50,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -68,7 +75,8 @@ export default {
           this.isLoading = false
         })
         .catch(() => {
-          this.$router.push('/homepage')
+          $('.alert').removeClass('d-none')
+          this.isLoading = false
         })
     },
     openProduct (item) {
@@ -87,7 +95,7 @@ export default {
           this.isLoading = false
         })
         .catch(() => {
-          alert('購物車內已有此商品')
+          $('.productAlert').removeClass('d-none')
           this.isLoading = false
         })
     },

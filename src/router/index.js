@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 const originalPush = VueRouter.prototype.push
@@ -12,55 +11,55 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: () => import('../views/Home.vue'),
     children: [
       {
         path: 'homepage',
         name: '前台首頁',
-        component: () => import('../views/Homepage.vue')
+        component: () => import('../views/front/Homepage.vue')
       },
       {
         path: 'products',
         name: '前台商品列表',
-        component: () => import('../views/Products.vue')
+        component: () => import('../views/front/Products.vue')
       },
       {
         // 動態路由
         path: 'product/:id',
         name: '前台單一商品列表',
-        component: () => import('../views/Product.vue')
+        component: () => import('../views/front/Product.vue')
       },
       {
         path: 'cart',
         name: '前台購物車',
-        component: () => import('../views/Cart.vue')
+        component: () => import('../views/front/Cart.vue')
       },
       {
         path: 'about',
         name: '關於我們',
-        component: () => import('../views/About.vue')
+        component: () => import('../views/front/About.vue')
       },
       {
         path: 'check',
         name: '結帳',
-        component: () => import('../views/Check.vue')
+        component: () => import('../views/front/Check.vue')
       },
       {
         path: 'check_detail/:id',
         name: '單一訂單詳情',
-        component: () => import('../views/Check_detail.vue')
+        component: () => import('../views/front/Check_detail.vue')
       },
       {
         path: 'done',
         name: '單一訂單詳情',
-        component: () => import('../views/Done.vue')
+        component: () => import('../views/front/Done.vue')
       }
     ]
   },
   {
     path: '/login',
     name: '登入',
-    component: () => import('../views/Login.vue')
+    component: () => import('../views/front/Login.vue')
   },
   {
     path: '/admin',

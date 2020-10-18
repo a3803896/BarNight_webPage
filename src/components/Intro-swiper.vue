@@ -17,7 +17,7 @@
       <div class="position-relative">
         <img
           src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/peJHmnODXcajJH9otB3HKk82YxgLTKEHNzJggW3GJF6MTj3HRShuN224FbGEZ4xGhlY6ADl8E3BJV58COtggbUe8lnfzCsariAklBESrOmKDCZ6Eg4fmpgnpXrKzE3z2.jpg"
-          class="intro-swiper-img w-100 obj-cov filter-brightness" alt="" />
+          class="intro-swiper-img w-100 obj-cov filter-brightness" alt="背景圖片" />
         <div class="w-100 slogan position-absolute text-white text-center bold">
           <p>無論是與朋友一同飲酒歡慶</p>
           <p>或是孤身一人獨自啜飲放空</p>
@@ -29,7 +29,7 @@
       <div class="position-relative">
         <img
           src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/7961hVz27y6obAHiptu1UXWMMWfQM7ERTlZ6meJtK0rXckMx0eWnXgQXjGAQUj1tnah7rlK4E7uFWk2bH7qFK4805ICAY6xHR6ENlnlE4Uh4sZ0VD98JetRnJY1UUiub.jpg"
-          class="intro-swiper-img w-100 obj-cov filter-grayscale obj-pos" alt="" />
+          class="intro-swiper-img w-100 obj-cov filter-grayscale obj-pos" alt="現正促銷中" />
         <div class="w-100 py-3 d-flex flex-column align-items-center onSale position-absolute text-white bold">
           <h4 class="vertical m-0">
             現正<span class="text-main">特價</span>中！

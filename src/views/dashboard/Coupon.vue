@@ -160,6 +160,7 @@ export default {
   data () {
     return {
       coupons: [],
+      isNew: false,
       pagination: {},
       token: '',
       endDate: '',
@@ -182,31 +183,27 @@ export default {
           this.pagination = res.data.meta.pagination
           this.isLoading = false
         })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+        })
     },
     sendCoupon () {
-      this.isLoading = true
-      if (Object.prototype.hasOwnProperty.call(this.templateCoupon, 'id')) {
-        const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
-        this.templateCoupon.deadline_at = this.endDate + ' ' + this.endTime
-        this.axios.patch(url, this.templateCoupon)
-          .then((res) => {
-            $('#couponModal').modal('hide')
-            this.getCoupon()
-          })
-      } else {
-        const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/coupon`
-        this.templateCoupon.deadline_at = this.endDate + ' ' + this.endTime
-        this.axios.post(url, this.templateCoupon)
-          .then((res) => {
-            $('#couponModal').modal('hide')
-            this.getCoupon()
-          })
-          .catch((err) => {
-            alert(err)
-            $('#couponModal').modal('hide')
-            this.isLoading = false
-          })
+      let api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/coupon`
+      this.templateCoupon.deadline_at = this.endDate + ' ' + this.endTime
+      let httpMethod = 'post'
+      if (!this.isNew) {
+        api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
+        httpMethod = 'patch'
       }
+      this.axios[httpMethod](api, this.templateCoupon).then(() => {
+        $('#couponModal').modal('hide')
+        this.isLoading = false
+        this.getCoupon()
+      }).catch(() => {
+        this.isLoading = false
+        $('.alert').removeClass('d-none')
+        $('#couponModal').modal('hide')
+      })
     },
     deleteCoupon () {
       this.isLoading = true
@@ -216,15 +213,22 @@ export default {
           $('#delCouponModal').modal('hide')
           this.getCoupon()
         })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
+          $('#couponModal').modal('hide')
+          this.isLoading = false
+        })
     },
     openCouponModal (isNew, item) {
       switch (isNew) {
         case 'new':
+          this.isNew = true
           this.templateCoupon = {}
           $('#couponModal').modal('show')
           break
 
         case 'edit':
+          this.isNew = false
           this.templateCoupon = JSON.parse(JSON.stringify(item))
           // eslint-disable-next-line no-case-declarations
           const timeArr = this.templateCoupon.deadline.datetime.split(' ')

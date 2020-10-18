@@ -19,6 +19,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -40,8 +41,10 @@ export default {
           const expired = res.data.expired
           document.cookie = `token=${token}; expires=${new Date(expired * 1000)}; path=/`
           this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
-          this.$router.push('/admin')
-        }).catch(() => {
+          this.$router.push('/admin/products')
+        })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
           this.isLoading = false
         })
     }

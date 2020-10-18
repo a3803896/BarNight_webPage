@@ -1,5 +1,11 @@
 <template>
   <div class="navBar position-relative">
+    <div class="alert alert-danger rounded-0 alert-dismissible fade show d-none" role="alert">
+      糟了！網站似乎有些狀況！
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="container">
       <nav class="d-flex justify-content-center justify-content-lg-between align-items-center pt-2 pb-2" id="nav">
         <i class="material-icons menuIcon d-block d-lg-none text-white" @click="showList">menu</i>
@@ -15,12 +21,12 @@
             <router-link to="/products" class="link noto">產品列表</router-link>
           </li>
           <li>
+            <router-link to="/check" class="link noto">結帳</router-link>
+          </li>
+          <li>
             <router-link to="/cart" class="link noto">購物車
               <span class="badge badge-danger">{{ cartProducts.length }}</span>
             </router-link>
-          </li>
-          <li>
-            <router-link to="/check" class="link noto">結帳</router-link>
           </li>
           <li><router-link to="/login" class="text-danger noto">登入後台</router-link></li>
         </ul>
@@ -45,11 +51,11 @@ export default {
       const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
       this.axios
         .get(url)
-        .then(res => {
+        .then((res) => {
           this.cartProducts = res.data.data
         })
-        .catch(err => {
-          alert(err)
+        .catch(() => {
+          $('.alert').removeClass('d-none')
         })
     }
   },
@@ -67,6 +73,7 @@ export default {
 
 <style lang="scss">
   .badge {
-    font-size: 60%;
+    font-size: 50%;
+    transform: translateX(-5px);
   }
 </style>

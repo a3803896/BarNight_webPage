@@ -24,7 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item) in checkList" :key="item.id">
+            <tr v-for="(item) in paidCheckList" :key="item.id">
               <td class="d-none d-md-block">
                 {{ item.created.datetime }}
               </td>
@@ -47,7 +47,7 @@
                 <span v-else>未付款</span>
               </td>
               <td>
-                <button type="button" class="btn btn-main rounded-0" @click="openDetail(item)">詳情</button>
+                <button type="button" class="btn btn-main rounded-0" @click="openDetail(item)">去結帳</button>
               </td>
             </tr>
           </tbody>
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -72,6 +73,11 @@ export default {
     this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
     this.getcheckList()
   },
+  computed: {
+    paidCheckList () {
+      return this.checkList.filter((item) => item.paid === false)
+    }
+  },
   methods: {
     getcheckList (onePage) {
       this.isLoading = true
@@ -80,6 +86,10 @@ export default {
         .then((res) => {
           this.checkList = res.data.data
           this.pagination = res.data.meta.pagination
+          this.isLoading = false
+        })
+        .catch(() => {
+          $('.alert').removeClass('d-none')
           this.isLoading = false
         })
     },

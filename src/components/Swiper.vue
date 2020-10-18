@@ -1,7 +1,15 @@
 <template>
   <swiper class="swiper" :options="swiperOption">
+    <swiper-slide class="swiperAlert d-none">
+      <div class="alert alert-danger rounded-0 alert-dismissible fade show" role="alert">
+        糟了！網站似乎有些狀況！
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </swiper-slide>
     <swiper-slide v-for="(item) in filterProducts" :key="item.id">
-      <img :src="item.imageUrl[0]" class="swiper-img mb-2" />
+      <img :src="item.imageUrl[0]" class="swiper-img mb-2" :alt="item.title" />
       <router-link to="/products" class="text-black h5 bold mb-1">{{ item.title }}</router-link>
       <p class="bold text-black">NT$ {{ item.price }}</p>
     </swiper-slide>
@@ -10,6 +18,7 @@
 </template>
 
 <script>
+/* global $ */
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
 
@@ -57,6 +66,7 @@ export default {
           this.products = res.data.data
         })
         .catch(() => {
+          $('.swiperAlert').removeClass('d-none')
           this.$router.push('/homepage')
         })
     }

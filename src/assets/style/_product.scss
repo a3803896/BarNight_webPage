@@ -26,4 +26,26 @@
       margin-left: -95px;
     }
   }
+  .card {
+    width: 100%;
+    @include md-width {
+      width: 48%;
+    }
+    @include lg-width {
+      width: 32%;
+    }
+  }
+  .card img {
+    height: 300px !important;
+    object-fit: cover;
+    object-position: 55% 70% !important;
+    border-bottom: 1px solid $maincolor !important;
+    @include md-width {
+      height: 350px !important;
+    }
+  }
+  .addCart {
+    top: 10px;
+    right: 10px;
+  }
 }
