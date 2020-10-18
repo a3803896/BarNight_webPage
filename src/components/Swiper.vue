@@ -1,9 +1,9 @@
 <template>
   <swiper class="swiper" :options="swiperOption">
     <swiper-slide v-for="(item) in filterProducts" :key="item.id">
-        <img :src="item.imageUrl[0]" class="swiper-img mb-2"/>
-        <router-link to="/products" class="text-black h5 bold mb-1">{{ item.title }}</router-link>
-        <p class="bold text-black">NT$ {{ item.price }}</p>
+      <img :src="item.imageUrl[0]" class="swiper-img mb-2" />
+      <router-link to="/products" class="text-black h5 bold mb-1">{{ item.title }}</router-link>
+      <p class="bold text-black">NT$ {{ item.price }}</p>
     </swiper-slide>
     <!-- <div class="swiper-pagination" slot="pagination"></div> -->
   </swiper>
@@ -11,7 +11,7 @@
 
 <script>
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import '../../node_modules/swiper/swiper-bundle.css'
+import 'swiper/swiper-bundle.css'
 
 export default {
   name: 'swiper-example-multiple-slides-per-biew',

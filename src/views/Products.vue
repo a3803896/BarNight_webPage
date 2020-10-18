@@ -4,30 +4,37 @@
       <div class="row">
         <div class="col-lg-2">
           <ul class="card-nav d-flex flex-wrap d-lg-block bg-dark list-unstyled border border-main sticky-top">
-            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('all')">所有產品</a></li>
-            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('food')">餐點</a></li>
-            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('cocktail')">調酒</a></li>
-            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('soft')">無酒精</a></li>
+            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('all')">所有產品</a>
+            </li>
+            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('food')">餐點</a>
+            </li>
+            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2"
+                @click.prevent="toggle('cocktail')">調酒</a></li>
+            <li><a href="#" class="text-white d-block text-center py-1 py-lg-2" @click.prevent="toggle('soft')">無酒精</a>
+            </li>
           </ul>
         </div>
         <div class="col-lg-10">
           <div class="card-columns" id="productList">
             <div class="card mb-4" v-for="(item) in products" :key="item.id" :data-category="item.category">
               <div class="position-relative">
-                  <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)"/>
-                  <button type="button" class="addCart position-absolute btn btn-outline-main noto rounded-pill d-flex" @click="addCart(item)"><i class="material-icons">shopping_cart</i></button>
-                  <p class="h4 mb-0 text-white">{{ item.category }}</p>
+                <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)" />
+                <button type="button" class="addCart position-absolute btn btn-outline-main noto rounded-pill d-flex"
+                  @click="addCart(item)"><i class="material-icons">shopping_cart</i></button>
+                <p class="h4 mb-0 text-white">{{ item.category }}</p>
               </div>
               <div class="card-body p-3 bg-dark">
-                  <a class="card-title text-main h4 bold mb-2 noto" @click.prevent="openProduct(item)">{{ item.title }}</a>
-                  <div class="">
-                      <span class="h5 mb-0 mr-2 text-white bold">NT${{ item.price }}元</span>
-                      <strike class="text-sub bold">NT${{ item.price }}元</strike>
-                  </div>
+                <a class="card-title text-main h4 bold mb-2 noto"
+                  @click.prevent="openProduct(item)">{{ item.title }}</a>
+                <div class="">
+                  <span class="h5 mb-0 mr-2 text-white bold">NT${{ item.price }}元</span>
+                  <strike class="text-sub bold">NT${{ item.price }}元</strike>
+                </div>
               </div>
             </div>
           </div>
-          <a class="scroll material-icons h1 mb-0 text-white rounded-circle d-block d-lg-none" href="#nav">arrow_circle_up</a>
+          <a class="scroll material-icons h1 mb-0 text-white rounded-circle d-block d-lg-none"
+            href="#nav">arrow_circle_up</a>
         </div>
       </div>
       <pagination :inner-pagination="pagination" @change-page="getProduct" class=""></pagination>
@@ -76,8 +83,7 @@ export default {
         quantity: '1'
       }
       this.axios.post(url, product)
-        .then(res => {
-          console.log(res)
+        .then(() => {
           this.$bus.$emit('get-cart')
           this.isLoading = false
         })

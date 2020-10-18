@@ -3,60 +3,57 @@
     <div class="row">
       <div class="col-12">
         <table class="table table-hover mt-4">
-                <thead>
-                    <tr>
-                        <th>
-                            下單時間
-                        </th>
-                        <th>
-                          購買款項
-                        </th>
-                        <th>
-                            付款方式
-                        </th>
-                        <th>
-                            應付金額
-                        </th>
-                        <th>
-                            是否付款
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(item) in orders" :key="item.id">
-                        <td>
-                            {{ item.created.datetime }}
-                        </td>
-                        <td>
-                          <ul class="list-unstyled">
-                            <li
-                              v-for="(product, key) in item.products"
-                              :key="key"
-                            >
-                              {{ product.product.title }} ：{{ product.quantity }}
-                              {{ product.product.unit }}
-                            </li>
-                          </ul>
-                        </td>
-                        <td class="">
-                            {{ item.payment }}
-                        </td>
-                        <td class="">
-                            {{ item.amount }}
-                        </td>
-                        <td>
-                            <span v-if="item.paid" class="text-success">已付款</span>
-                            <span v-else>未付款</span>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-primary" @click="openDetail(item)">詳情</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <pagination :inner-pagination="pagination" @change-page="getOrders"></pagination>
-            <loading :active.sync="isLoading"></loading>
+          <thead>
+            <tr>
+              <th>
+                下單時間
+              </th>
+              <th>
+                購買款項
+              </th>
+              <th>
+                付款方式
+              </th>
+              <th>
+                應付金額
+              </th>
+              <th>
+                是否付款
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item) in orders" :key="item.id">
+              <td>
+                {{ item.created.datetime }}
+              </td>
+              <td>
+                <ul class="list-unstyled">
+                  <li v-for="(product, key) in item.products" :key="key">
+                    {{ product.product.title }} ：{{ product.quantity }}
+                    {{ product.product.unit }}
+                  </li>
+                </ul>
+              </td>
+              <td class="">
+                {{ item.payment }}
+              </td>
+              <td class="">
+                {{ item.amount }}
+              </td>
+              <td>
+                <span v-if="item.paid" class="text-success">已付款</span>
+                <span v-else>未付款</span>
+              </td>
+              <td>
+                <button type="button" class="btn btn-primary" @click="openDetail(item)">詳情</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination :inner-pagination="pagination" @change-page="getOrders"></pagination>
+        <loading :active.sync="isLoading"></loading>
       </div>
     </div>
 
