@@ -1,76 +1,76 @@
-.products{
-    .card-nav {
-        z-index: 9 !important;
-        li {
-            width: 50%;
-            &:nth-child(1){
-            border-bottom: 1px solid $maincolor;
-            border-right: 1px solid $maincolor;
-            }
-            &:nth-child(2){
-                border-bottom: 1px solid $maincolor;
-            }
-            &:nth-child(3){
-                border-right: 1px solid $maincolor; 
-            }
-            @include lg-width {
-                width: 100%;
-                &:nth-child(1){
-                border-bottom: 1px solid $maincolor;
-                border-right: none;
-                }
-                &:nth-child(2){
-                    border-bottom: 1px solid $maincolor;
-                }
-                &:nth-child(3){
-                    border-right: none; 
-                    border-bottom: 1px solid $maincolor;
-                }
-            }
-        }
-        a:hover {
-            background: rgba(0, 0, 0, 0.3);
-            color: $maincolor !important;
-        }
-    }
-    .addCart {
-        top: 10px;
-        right: 10px;
-    }
-    .card-columns {
-        @include sm-width {
-            column-count:2;
-        }
-        @include lg-width {
-            column-count:3;
-        }
-    }
-    .card a{
-        display: block;
-    }
-    .card img {
-        height: 350px;
-        object-fit: cover;
-        object-position: 55% 70%;
+.products {
+  .card-nav {
+    z-index: 9 !important;
+    li {
+      width: 50%;
+      &:nth-child(1) {
         border-bottom: 1px solid $maincolor;
-        @include sm-width {
-            height: auto;
+        border-right: 1px solid $maincolor;
+      }
+      &:nth-child(2) {
+        border-bottom: 1px solid $maincolor;
+      }
+      &:nth-child(3) {
+        border-right: 1px solid $maincolor;
+      }
+      @include lg-width {
+        width: 100%;
+        &:nth-child(1) {
+          border-bottom: 1px solid $maincolor;
+          border-right: none;
         }
+        &:nth-child(2) {
+          border-bottom: 1px solid $maincolor;
+        }
+        &:nth-child(3) {
+          border-right: none;
+          border-bottom: 1px solid $maincolor;
+        }
+      }
     }
+    a:hover {
+      background: rgba(0, 0, 0, 0.3);
+      color: $maincolor !important;
+    }
+  }
+  .addCart {
+    top: 10px;
+    right: 10px;
+  }
+  .card-columns {
+    @include sm-width {
+      column-count: 2;
+    }
+    @include lg-width {
+      column-count: 3;
+    }
+  }
+  .card a {
+    display: block;
+  }
+  .card img {
+    height: 350px;
+    object-fit: cover;
+    object-position: 55% 70%;
+    border-bottom: 1px solid $maincolor;
+    @include sm-width {
+      height: auto;
+    }
+  }
 
-    .card p {
-        position: absolute;
-        bottom: 10px;
-        left: 16px;
-    }
+  .card p {
+    position: absolute;
+    bottom: 10px;
+    left: 16px;
+  }
 }
 .scroll {
-    position: fixed;
-    bottom: 85px;
-    right: 20px;
-    z-index: 9;
-    @include sm-width {
-        right: 50px;
-        bottom:60px;
-    }
+  position: fixed;
+  bottom: 85px;
+  right: 20px;
+  z-index: 9;
+  @include sm-width {
+    right: 50px;
+    bottom: 60px;
+  }
 }

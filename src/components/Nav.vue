@@ -22,7 +22,7 @@
           <li>
             <router-link to="/check" class="link noto">結帳</router-link>
           </li>
-          <!-- <li><router-link to="/login" class="text-danger noto">登入後台</router-link></li> -->
+          <li><router-link to="/login" class="text-danger noto">登入後台</router-link></li>
         </ul>
       </nav>
     </div>
@@ -42,8 +42,7 @@ export default {
       $('.navList').toggleClass('showList')
     },
     getCart () {
-      this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/shopping`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
       this.axios
         .get(url)
         .then(res => {

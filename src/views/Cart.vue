@@ -4,7 +4,7 @@
       <form class="pt-3 pb-3 pt-lg-4 pb-lg-4">
         <validation-observer v-slot="{ invalid }">
           <div class="d-flex justify-content-end">
-            <button class="btn btn-outline-sub noto bold btn-sm rounded-0 mb-3" @click.prevent="clearAll">清空購物車</button>
+            <button type="button" class="btn btn-outline-sub noto bold btn-sm rounded-0 mb-3" @click.prevent="clearAll" >清空購物車</button>
           </div>
           <div
             class="row justify-content-center text-white pt-lg-4 pb-lg-4 flex-column-reverse align-items-center flex-lg-row mb-3">
@@ -132,7 +132,7 @@
           </div>
         </validation-observer>
       </form>
-      <pagination :inner-pagination="pagination" @change-page="getCart"></pagination>
+      <Mypagination :inner-pagination="pagination" @change-page="getCart"></Mypagination>
     </div>
     <loading :active.sync="isLoading"></loading>
   </div>
@@ -161,9 +161,9 @@ export default {
     this.getCart()
   },
   methods: {
-    getCart (page) {
+    getCart (page = 1) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/shopping?page=${page}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping?page=${page}`
       this.axios
         .get(url)
         .then((res) => {
@@ -179,12 +179,11 @@ export default {
         })
         .catch(() => {
           this.isLoading = false
-          // location.reload()
         })
     },
     deleteCart (item) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/shopping/${item.product.id}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping/${item.product.id}`
       this.axios.delete(url).then((res) => {
         this.getCart()
         this.isLoading = false
@@ -192,7 +191,7 @@ export default {
     },
     clearAll () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/shopping/all/product`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping/all/product`
       this.axios.delete(url).then((res) => {
         this.getCart()
         this.isLoading = false
@@ -201,7 +200,7 @@ export default {
     editCart (which, item) {
       let productPlus = {}
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/shopping`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
 
       switch (which) {
         case 'plus':
@@ -235,7 +234,7 @@ export default {
     },
     sendOrder () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/orders`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/orders`
       if (this.coupon !== '') {
         this.form.coupon = this.coupon
       }

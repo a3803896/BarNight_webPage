@@ -11,7 +11,7 @@
             </div>
           </div>
         </div>
-        <pagination :inner-pagination="pagination" @change-page="getFiles"></pagination>
+        <Mypagination :inner-pagination="pagination" @change-page="getFiles"></Mypagination>
         <loading :active.sync="isLoading"></loading>
         <!-- modal -->
         <div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -80,10 +80,9 @@ export default {
     this.getFiles()
   },
   methods: {
-    getFiles (page) {
+    getFiles (page = 1) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/storage?page=${page}`
-      this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/storage?page=${page}`
       this.axios.get(url)
         .then((res) => {
           this.files = res.data.data
@@ -109,7 +108,7 @@ export default {
     },
     delFile () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/storage/${this.imgId}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/storage/${this.imgId}`
       this.axios.delete(url)
         .then(() => {
           this.getFiles()

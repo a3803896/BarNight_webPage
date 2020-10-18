@@ -1,113 +1,118 @@
-$maincolor:#ee7631;
-$subcolor:#484344;
+$maincolor: #ee7631;
+$subcolor: #484344;
 
 .black-texture {
-    background: url('https://imgur.com/Tpfuciq.jpg') center;
-    // backdrop-filter: brightness(70%);
-    // background-attachment: fixed;
-    background-size: 100%;
+  background: url("https://imgur.com/Tpfuciq.jpg") center;
+  // backdrop-filter: brightness(70%);
+  // background-attachment: fixed;
+  background-size: 100%;
 }
 .white-texture {
-    background: url('https://imgur.com/CABkej6.jpg') center;
-    background-size: cover;
-    // background-attachment: fixed;
+  background: url("https://imgur.com/CABkej6.jpg") center;
+  background-size: cover;
+  // background-attachment: fixed;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a,
 a:hover {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-h1,h2,h3,h4,h5,a{
-    margin-bottom: 0 !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+a {
+  margin-bottom: 0 !important;
 }
 
-.pointer{
-    cursor: pointer;
+.pointer {
+  cursor: pointer;
 }
 
-.bold{
-    font-weight: bold;
+.bold {
+  font-weight: bold;
 }
 
-.black{
-    font-weight: 900;
+.black {
+  font-weight: 900;
 }
 body,
-.noto{
-    font-family: 'Noto Sans TC', sans-serif;
+.noto {
+  font-family: "Noto Sans TC", sans-serif;
 }
-.marker{
-    font-family: 'Permanent Marker', cursive, sans-serif;
-}
-
-.fz-3rem{
-    font-size: 3rem;
+.marker {
+  font-family: "Permanent Marker", cursive, sans-serif;
 }
 
-.no-p15{
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+.fz-3rem {
+  font-size: 3rem;
 }
 
-.z-10{
-    position: relative;
-    z-index: 10;
-}
-.z-5{
-    position: relative;
-    z-index: 5;
+.no-p15 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
-.vertical{
-    writing-mode: vertical-lr 
+.z-10 {
+  position: relative;
+  z-index: 10;
+}
+.z-5 {
+  position: relative;
+  z-index: 5;
+}
+
+.vertical {
+  writing-mode: vertical-lr;
 }
 
 .w-30 {
-    width: 30%;
+  width: 30%;
 }
 
 .w-70 {
-    width: 70%;
+  width: 70%;
 }
 .w-80 {
-    width: 80%;
+  width: 80%;
 }
 .w-90 {
-    width: 90%;
+  width: 90%;
 }
 .w-95 {
-    width: 95%;
+  width: 95%;
 }
 
 .p-md-32 {
-    @include md-width{
-        padding: 32px !important;
-    }
+  @include md-width {
+    padding: 32px !important;
+  }
 }
 
 .fz16 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .obj-cov {
-    object-fit: cover;
-    object-position: center;
+  object-fit: cover;
+  object-position: center;
 }

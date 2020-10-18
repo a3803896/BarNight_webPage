@@ -26,7 +26,7 @@
               <div class="card-body p-3 bg-dark">
                 <a class="card-title text-main h4 bold mb-2 noto"
                   @click.prevent="openProduct(item)">{{ item.title }}</a>
-                <div class="">
+                <div>
                   <span class="h5 mb-0 mr-2 text-white bold">NT${{ item.price }}元</span>
                   <strike class="text-sub bold">NT${{ item.price }}元</strike>
                 </div>
@@ -37,7 +37,7 @@
             href="#nav">arrow_circle_up</a>
         </div>
       </div>
-      <pagination :inner-pagination="pagination" @change-page="getProduct" class=""></pagination>
+      <Mypagination :inner-pagination="pagination" @change-page="getProduct"></Mypagination>
     </div>
     <loading :active.sync="isLoading"></loading>
   </div>
@@ -57,15 +57,14 @@ export default {
     this.getProduct(1)
   },
   methods: {
-    getProduct (page) {
+    getProduct (page = 1) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/products?page=${page}&orderBy=category&paged=30`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/products?page=${page}&orderBy=category&paged=30`
       this.axios
         .get(url)
         .then((res) => {
           this.products = res.data.data
           this.pagination = res.data.meta.pagination
-          window.scrollTo(0, 0)
           this.isLoading = false
         })
         .catch(() => {
@@ -77,7 +76,7 @@ export default {
     },
     addCart (item) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/shopping`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
       const product = {
         product: item.id,
         quantity: '1'

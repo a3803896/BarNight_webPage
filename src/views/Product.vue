@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row flex-nowrap flex-column flex-lg-row">
         <div class="col-lg-8">
-          <div class="">
+          <div>
             <img :src="product.imageUrl" alt="" class="mb-3 mb-lg-0">
           </div>
         </div>
@@ -17,7 +17,7 @@
               <input type="number" min="1"
                 class="w-30 noto text-center bg-gray border-0 p-2 pl-2 pr-2 pl-lg-3 pr-lg-3 mr-1" id="numberArr"
                 v-model="productNum" value="1">
-              <button class="btn btn-main w-70 noto" @click="addCart">加入購物車</button>
+              <button type="button" class="btn btn-main w-70 noto" @click="addCart">加入購物車</button>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@ export default {
     }
   },
   created () {
-    const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/product/${this.$route.params.id}`
+    const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/product/${this.$route.params.id}`
     this.axios.get(url)
       .then((res) => {
         this.product = res.data.data
@@ -49,7 +49,7 @@ export default {
   methods: {
     addCart () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/shopping`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
       const product = {
         product: this.$route.params.id,
         quantity: this.productNum

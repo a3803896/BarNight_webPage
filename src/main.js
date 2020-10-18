@@ -15,9 +15,8 @@ import { ValidationProvider, ValidationObserver, configure, extend, localize } f
 import { email, min, integer, numeric } from 'vee-validate/dist/rules'
 import '../node_modules/swiper/swiper-bundle.css'
 
-// eslint-disable-next-line camelcase
-import zh_TW from 'vee-validate/dist/locale/zh_TW.json'
-import pagination from '../src/components/pagination.vue'
+import zhTW from 'vee-validate/dist/locale/zh_TW.json'
+import Mypagination from '../src/components/Mypagination.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 window.$ = window.jQuery = jQuery
@@ -27,7 +26,7 @@ AOS.init()
 
 // 元件
 Vue.component('Loading', Loading)
-Vue.component('pagination', pagination)
+Vue.component('Mypagination', Mypagination)
 Vue.component('swiper', productSwiper)
 Vue.component('intro-swiper', introswiper)
 
@@ -54,7 +53,7 @@ extend('min', min)
 extend('integer', integer)
 extend('numeric', numeric)
 configure(config)
-localize('zh_TW', zh_TW)
+localize('zhTW', zhTW)
 // 加入藍圖
 swiper.use([Navigation, Pagination, Autoplay])
 Vue.use(VueAxios, axios)

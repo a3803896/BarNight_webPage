@@ -1,58 +1,58 @@
 .cart {
-    img {
-        object-fit: cover;
-        @include sm-width {
-            height: 185px;
-        }
-        @include lg-width {
-            height: 197px;
-        }
+  img {
+    object-fit: cover;
+    @include sm-width {
+      height: 185px;
     }
+    @include lg-width {
+      height: 197px;
+    }
+  }
 }
 
 .cartCard {
-    h5 {
-        font-size: 16px !important;
-        @include lg-width {
-            font-size: 1.4rem !important;
-        }
+  h5 {
+    font-size: 16px !important;
+    @include lg-width {
+      font-size: 1.4rem !important;
     }
-    label {
-        font-size: 14px;
-        @include lg-width {
-            font-size: 16px;
-        }
+  }
+  label {
+    font-size: 14px;
+    @include lg-width {
+      font-size: 16px;
     }
+  }
 
-    input[type="range"]{
-    -webkit-appearance:none;
-    height:2px;
+  input[type="range"] {
+    -webkit-appearance: none;
+    height: 2px;
     background: $maincolor;
-    background-position:center;
-    background-repeat:no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
     outline: none;
     width: 70%;
     @include md-width {
-        width: 80%;
+      width: 80%;
     }
-    }
+  }
 
-    input[type="range"]::-webkit-slider-thumb{
-    -webkit-appearance:none;
-    width:15px;
-    height:15px;
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
     border-radius: 100%;
-    background: #F2F2F2;
-    position:relative;
+    background: #f2f2f2;
+    position: relative;
     border: 2px solid $maincolor;
-    z-index:3;
+    z-index: 3;
     transition: 0.05s;
     cursor: pointer;
 
     &:hover {
-        width:20px;
-        height:20px;
-        transition: 0.05s;
+      width: 20px;
+      height: 20px;
+      transition: 0.05s;
     }
-    }
+  }
 }

@@ -36,10 +36,10 @@
                   </li>
                 </ul>
               </td>
-              <td class="">
+              <td>
                 {{ item.payment }}
               </td>
-              <td class="">
+              <td>
                 {{ item.amount }}
               </td>
               <td>
@@ -52,7 +52,7 @@
             </tr>
           </tbody>
         </table>
-        <pagination :inner-pagination="pagination" @change-page="getOrders"></pagination>
+        <Mypagination :inner-pagination="pagination" @change-page="getOrders"></Mypagination>
         <loading :active.sync="isLoading"></loading>
       </div>
     </div>
@@ -77,8 +77,7 @@ export default {
   methods: {
     getOrders (onePage) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/orders?page=${onePage}`
-      this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/orders?page=${onePage}`
       this.axios.get(url)
         .then((res) => {
           this.orders = res.data.data

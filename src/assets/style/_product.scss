@@ -1,29 +1,29 @@
 .product {
-    .material-icons  {
-        cursor: pointer;
-    }
-    h2 {
-        font-size: 28px;
-        @include lg-width {
-            font-size: 2rem;
-        }
-    }
-    p { 
-        font-size: 18px;
-        line-height: 1.4;
-        @include lg-width {
-            font-size: 1.25rem;
-        }
-    }
+  .material-icons {
+    cursor: pointer;
+  }
+  h2 {
+    font-size: 28px;
     @include lg-width {
-        img {
-        width: 100%;
-        height: 650px;
-        object-fit: cover;
-        object-position: center;
-        }
-        .details{
-            margin-left: -95px;
-        }
-    }  
+      font-size: 2rem;
+    }
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.4;
+    @include lg-width {
+      font-size: 1.25rem;
+    }
+  }
+  @include lg-width {
+    img {
+      width: 100%;
+      height: 650px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .details {
+      margin-left: -95px;
+    }
+  }
 }

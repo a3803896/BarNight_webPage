@@ -33,19 +33,16 @@ export default {
   methods: {
     signin () {
       this.isLoading = true
-      const api = 'https://course-ec-api.hexschool.io/api/auth/login'
+      const api = `${process.env.VUE_APP_APIPATH}auth/login`
       this.axios.post(api, this.user)
         .then((res) => {
           const token = res.data.token
           const expired = res.data.expired
           document.cookie = `token=${token}; expires=${new Date(expired * 1000)}; path=/`
           this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
-          this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
-          // ↑將 Token 加入到 Headers 內
-          //   window.location = 'products.html'
-          this.$router.push('/admin/homepage')
+          this.$router.push('/admin')
         }).catch(() => {
-          location.reload()
+          this.isLoading = false
         })
     }
   }

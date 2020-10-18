@@ -2,7 +2,7 @@
   <div>
     <div class="container bg-white p-3">
       <div class="text-right mt-3">
-        <button class="btn btn-primary" @click="openModal('new')">
+        <button type="button" class="btn btn-primary" @click="openModal('new')">
           建立新的產品
         </button>
       </div>
@@ -47,10 +47,10 @@
             </td>
             <td>
               <div class="btn-group">
-                <button class="btn btn-outline-primary btn-sm" @click="openModal('edit',item)">
+                <button type="button" class="btn btn-outline-primary btn-sm" @click="openModal('edit',item)">
                   編輯
                 </button>
-                <button class="btn btn-outline-danger btn-sm" @click="openModal('delete',item)">
+                <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('delete',item)">
                   刪除
                 </button>
               </div>
@@ -58,7 +58,7 @@
           </tr>
         </tbody>
       </table>
-      <pagination :inner-pagination="pagination" @change-page="getData"></pagination>
+      <Mypagination :inner-pagination="pagination" @change-page="getData"></Mypagination>
       <loading :active.sync="isLoading"></loading>
       <!-- Modal -->
       <div id="productModal" class="modal fade pb-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -207,13 +207,11 @@ export default {
   methods: {
     getData (onePage) {
       this.isLoading = true
-      const api = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/products?page=${onePage}`
-      this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
+      const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/products?page=${onePage}`
       this.axios.get(api)
         .then((res) => {
           this.products = res.data.data
           this.pagination = res.data.meta.pagination
-          window.scrollTo(0, 0)
           this.isLoading = false
         })
         .catch((error) => {
@@ -246,7 +244,7 @@ export default {
     updateProduct () {
       this.isLoading = true
       if (Object.prototype.hasOwnProperty.call(this.tempProduct, 'id')) {
-        const api = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
+        const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
         const data = this.tempProduct
         this.axios.patch(api, data)
           .then(() => {
@@ -259,7 +257,7 @@ export default {
           })
       } else {
         this.isLoading = true
-        const api = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/product`
+        const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/product`
         const data = this.tempProduct
         this.axios.post(api, data)
           .then(() => {
@@ -274,15 +272,12 @@ export default {
       this.tempProduct = {
         imageUrl: []
       }
-      // eslint-disable-next-line no-undef
       $('#productModal').modal('hide')
     },
     delProduct () {
       this.isLoading = true
-      const api = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
-      this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
+      const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
       this.axios.delete(api).then(() => {
-        // eslint-disable-next-line no-undef
         $('#delProductModal').modal('hide')
         this.getData(this.pagination.current_page)
         this.isLoading = false
@@ -293,7 +288,7 @@ export default {
       const uploadingFile = document.querySelector('#customFile').files[0]
       const formData = new FormData()
       formData.append('file', uploadingFile)
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/storage`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/storage`
       this.axios.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -307,7 +302,6 @@ export default {
         .catch((err) => {
           alert(err)
           this.isLoading = false
-          // eslint-disable-next-line no-undef
           $('#productModal').modal('hide')
         })
     }

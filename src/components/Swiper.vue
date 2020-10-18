@@ -48,9 +48,9 @@ export default {
     }
   },
   methods: {
-    getProduct (page) {
+    getProduct (page = 1) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/products?page=${page}&orderBy=category&paged=30`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/products?page=${page}&orderBy=category&paged=30`
       this.axios
         .get(url)
         .then((res) => {

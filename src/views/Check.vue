@@ -39,20 +39,20 @@
               <td class="d-none d-md-block">
                 {{ item.payment }}
               </td>
-              <td class="">
+              <td>
                 {{ item.amount }}
               </td>
               <td>
                 <span v-if="item.paid" class="text-main">已付款</span>
                 <span v-else>未付款</span>
               </td>
-              <td class="">
+              <td>
                 <button type="button" class="btn btn-main rounded-0" @click="openDetail(item)">詳情</button>
               </td>
             </tr>
           </tbody>
         </table>
-        <pagination :inner-pagination="pagination" @change-page="getcheckList"></pagination>
+        <Mypagination :inner-pagination="pagination" @change-page="getcheckList"></Mypagination>
         <loading :active.sync="isLoading"></loading>
       </div>
     </div>
@@ -65,7 +65,6 @@ export default {
     return {
       isLoading: false,
       pagination: {},
-      token: '',
       checkList: []
     }
   },
@@ -76,7 +75,7 @@ export default {
   methods: {
     getcheckList (onePage) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/orders`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/orders`
       this.axios.get(url)
         .then((res) => {
           this.checkList = res.data.data

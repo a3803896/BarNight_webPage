@@ -101,14 +101,19 @@ const routes = [
   },
   {
     path: '*',
-    name: 'Home',
-    component: Home
+    redirect: 'homepage'
   }
 ]
 
 const router = new VueRouter({
   routes,
-  linkActiveClass: 'active'
+  linkActiveClass: 'active',
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    return { x: 0, y: 0 }
+  }
 })
 
 export default router

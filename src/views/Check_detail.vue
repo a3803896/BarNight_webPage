@@ -6,7 +6,7 @@
           <div class="d-flex justify-content-between align-items-end border-bottom pb-3 pt-1 text-white noto">
             <h3 class="d-none d-lg-block bold mb-0">訂單詳情</h3>
             <div class="d-flex flex-column flex-lg-row">
-              <p class="">訂單編號：{{ createdTime.timestamp }}</p>
+              <p>訂單編號：{{ createdTime.timestamp }}</p>
               <p class="ml-0 ml-lg-5">訂單時間：{{ createdTime.datetime }}</p>
             </div>
           </div>
@@ -54,8 +54,8 @@
 
         </div>
         <div class="col-12 col-lg-4 text-white noto">
-          <div class="">
-            <div class="">
+          <div>
+            <div>
               <p class="mb-2">訂購人姓名：{{ orderUser.name }}</p>
               <p class="mb-2">訂購人地址：{{ orderUser.address }}</p>
               <p class="mb-2">訂購人電話：{{ orderUser.tel }}</p>
@@ -133,7 +133,6 @@ export default {
       createdTime: {},
       coupon: {},
       orderUser: {},
-      token: '',
       isLoading: false,
       form: {}
     }
@@ -144,8 +143,7 @@ export default {
   methods: {
     getCheckDetail () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/orders/${this.$route.params.id}`
-      this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/orders/${this.$route.params.id}`
       this.axios.get(url)
         .then((res) => {
           this.order = res.data.data
@@ -157,7 +155,7 @@ export default {
     },
     checkout () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/ec/orders/${this.$route.params.id}/paying`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/orders/${this.$route.params.id}/paying`
       this.axios.post(url)
         .then(() => {
           this.$router.push('/done')

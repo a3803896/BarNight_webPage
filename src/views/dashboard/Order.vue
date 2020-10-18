@@ -6,7 +6,7 @@
           <div class="d-flex justify-content-between align-items-end pb-2 pt-1 mb-2">
             <h3 class="bold mb-0">訂單詳情</h3>
             <div class="d-flex">
-              <p class="">訂單編號：{{ createdTime.timestamp }}</p>
+              <p>訂單編號：{{ createdTime.timestamp }}</p>
               <p class="ml-5">訂單時間：{{ createdTime.datetime }}</p>
             </div>
           </div>
@@ -55,7 +55,7 @@
               <p class="mb-2">訂購人地址：{{ orderUser.address }}</p>
               <p class="mb-2">訂購人電話：{{ orderUser.tel }}</p>
               <p class="mb-2">訂購人電郵：{{ orderUser.email }}</p>
-              <p class="">訂單備註：{{ order.message }}</p>
+              <p>訂單備註：{{ order.message }}</p>
             </div>
             <div class="ml-5">
               <p class="mb-2">優惠券：<span v-if="coupon">{{ coupon.title }} {{ coupon.percent }}%OFF</span>
@@ -96,8 +96,7 @@ export default {
   methods: {
     getOrder () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/orders/${this.$route.params.id}`
-      this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/orders/${this.$route.params.id}`
       this.axios.get(url)
         .then((res) => {
           this.order = res.data.data
@@ -109,7 +108,7 @@ export default {
     },
     orderPaid () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/orders/${this.$route.params.id}/paid`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/orders/${this.$route.params.id}/paid`
       this.axios.patch(url)
         .then((res) => {
           this.getOrder()
@@ -117,7 +116,7 @@ export default {
     },
     orderUnpaid () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/orders/${this.$route.params.id}/unpaid`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/orders/${this.$route.params.id}/unpaid`
       this.axios.patch(url)
         .then((res) => {
           this.getOrder()

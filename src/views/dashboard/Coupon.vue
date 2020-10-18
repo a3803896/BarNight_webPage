@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="d-flex justify-content-end pt-3">
-      <button class="btn btn-primary" @click="openCouponModal('new')">
+      <button type="button" class="btn btn-primary" @click="openCouponModal('new')">
         建立新的優惠券
       </button>
     </div>
@@ -48,10 +48,10 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-primary btn-sm" @click="openCouponModal('edit',item)">
+              <button type="button" class="btn btn-outline-primary btn-sm" @click="openCouponModal('edit',item)">
                 編輯
               </button>
-              <button class="btn btn-outline-danger btn-sm" @click="openCouponModal('delete',item)">
+              <button type="button" class="btn btn-outline-danger btn-sm" @click="openCouponModal('delete',item)">
                 刪除
               </button>
             </div>
@@ -59,7 +59,7 @@
         </tr>
       </tbody>
     </table>
-    <pagination :inner-pagination="pagination" @change-page="getCoupon"></pagination>
+    <Mypagination :inner-pagination="pagination" @change-page="getCoupon"></Mypagination>
     <loading :active.sync="isLoading"></loading>
 
     <!-- modal -->
@@ -68,14 +68,14 @@
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content border-0">
           <div class="modal-header">
-            <h2 class="">新增優惠券</h2>
+            <h2>新增優惠券</h2>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <validation-observer v-slot="{ invalid }">
-              <form class="">
+              <form>
                 <validation-provider rules="required" v-slot="{ errors, classes }">
                   <label for="couponName">優惠券名稱</label>
                   <input type="text" id="couponName" name="優惠券名稱" class="form-control mb-2" :class="classes"
@@ -173,10 +173,9 @@ export default {
     this.getCoupon()
   },
   methods: {
-    getCoupon (page) {
+    getCoupon (page = 1) {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupons?page=${page}`
-      this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/coupons?page=${page}`
       this.axios.get(url)
         .then((res) => {
           this.coupons = res.data.data
@@ -187,7 +186,7 @@ export default {
     sendCoupon () {
       this.isLoading = true
       if (Object.prototype.hasOwnProperty.call(this.templateCoupon, 'id')) {
-        const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
+        const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
         this.templateCoupon.deadline_at = this.endDate + ' ' + this.endTime
         this.axios.patch(url, this.templateCoupon)
           .then((res) => {
@@ -195,7 +194,7 @@ export default {
             this.getCoupon()
           })
       } else {
-        const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupon`
+        const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/coupon`
         this.templateCoupon.deadline_at = this.endDate + ' ' + this.endTime
         this.axios.post(url, this.templateCoupon)
           .then((res) => {
@@ -211,7 +210,7 @@ export default {
     },
     deleteCoupon () {
       this.isLoading = true
-      const url = `https://course-ec-api.hexschool.io/api/${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/coupon/${this.templateCoupon.id}`
       this.axios.delete(url)
         .then((res) => {
           $('#delCouponModal').modal('hide')

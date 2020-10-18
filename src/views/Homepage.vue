@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <div class="banner container-fluid position-relative">
       <!-- 背景 -->
       <div class="row container-fluid">
@@ -89,13 +89,15 @@
           <div class="infoText py-lg-5 bg-dark">
             <h3 class="text-main marker text-center mb-2 mb-lg-4">bar night <span class="noto">夜吧</span>
             </h3>
-            <p class="text-center text-main bold mb-2">TEL</p>
-            <p class="text-center text-white h5 pb-3 mb-3 border-bottom">(02)2111-0451</p>
-            <p class="text-center text-main bold mb-2">ADDRESS</p>
-            <p class="text-center text-white h5 pb-3 mb-3 border-bottom">台北市中正區重慶南路一段122號</p>
-            <p class="text-center text-main bold mb-2">OPEN TIME</p>
-            <p class="text-center text-white h5">週二至週四：19:00-24:00</p>
-            <p class="text-center text-white h5 pb-3 mb-3 border-bottom">週五至週日：18:00-01:00</p>
+            <ul class="list-unstyled">
+              <li class="text-center text-main bold mb-2">TEL</li>
+              <li class="text-center text-white h5 pb-3 mb-3 border-bottom">(02)2111-0451</li>
+              <li class="text-center text-main bold mb-2">ADDRESS</li>
+              <li class="text-center text-white h5 pb-3 mb-3 border-bottom">台北市中正區重慶南路一段122號</li>
+              <li class="text-center text-main bold mb-2">OPEN TIME</li>
+              <li class="text-center text-white h5">週二至週四：19:00-24:00</li>
+              <li class="text-center text-white h5 pb-3 mb-3 border-bottom">週五至週日：18:00-01:00</li>
+            </ul>
             <ul class="d-flex justify-content-center list-unstyled mb-0 h4">
               <li><a href="#" class="text-white mx-3"><i class="fab fa-facebook"></i></a></li>
               <li><a href="#" class="text-white mx-3"><i class="fab fa-instagram"></i></a></li>
