@@ -4,7 +4,7 @@
       <div class="row flex-nowrap flex-column flex-lg-row">
         <div class="col-lg-8">
           <div>
-            <img :src="product.imageUrl" :alt="product.title" class="mb-3 mb-lg-0">
+            <img :src="product.imageUrl[0]" :alt="product.title" class="mb-3 mb-lg-0">
           </div>
         </div>
         <div class="col-lg-5 details d-flex align-items-center">
@@ -15,8 +15,7 @@
             <span class="text-right h4 noto text-danger mb-4">價格：{{ product.price }}元</span>
             <div class="d-flex justify-content-between">
               <input type="number" min="1"
-                class="w-30 noto text-center bg-gray border-0 p-2 px-lg-3 mr-1" id="numberArr"
-                v-model.lazy="productNum">
+                class="w-30 noto text-center bg-gray border-0 p-2 px-lg-3 mr-1" id="numberArr" v-model.lazy="productNum">
               <button type="button" class="btn btn-main w-70 noto" @click="addCart">加入購物車</button>
             </div>
           </div>
@@ -54,12 +53,14 @@ export default {
   data () {
     return {
       products: [],
-      product: {},
+      product: {
+        imageUrl: []
+      },
       productNum: 1,
       isLoading: false
     }
   },
-  created () {
+  mounted () {
     this.getproduct()
   },
   watch: {
@@ -71,21 +72,7 @@ export default {
   },
   computed: {
     filterProduct () {
-      function getRandomArrayElements (arr, count) {
-        const shuffled = arr.slice(0)
-        let i = arr.length
-        const min = i - count; let temp
-        let index
-        while (i-- > min) {
-          index = Math.floor((i + 1) * Math.random())
-          temp = shuffled[index]
-          shuffled[index] = shuffled[i]
-          shuffled[i] = temp
-        }
-        return shuffled.slice(min)
-      }
-      const productList = this.products.filter((item) => item.category === this.product.category)
-      return getRandomArrayElements(productList, 3)
+      return this.products.filter((item) => item.category === this.product.category)
     }
   },
   methods: {
