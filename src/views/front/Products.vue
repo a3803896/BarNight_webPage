@@ -54,14 +54,13 @@
 export default {
   data () {
     return {
-      token: '',
       products: [],
       pagination: {},
       isLoading: false
     }
   },
   mounted () {
-    this.getProduct(1)
+    this.getProduct()
   },
   methods: {
     getProduct (page = 1) {

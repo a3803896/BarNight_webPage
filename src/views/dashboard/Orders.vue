@@ -67,12 +67,10 @@ export default {
     return {
       isLoading: false,
       pagination: {},
-      token: '',
       orders: []
     }
   },
   created () {
-    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
     this.getOrders()
   },
   methods: {

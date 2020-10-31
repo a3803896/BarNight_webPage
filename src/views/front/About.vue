@@ -57,19 +57,19 @@
           <div class="col-12">
             <div class="position-relative mb-2 mb-lg-4 d-lg-flex align-items-center">
               <img
-                src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/wNL4CZB0wmieHVIdG7vbGEqnDK7ZVqsh1g0CEKF6ZjePAdXrfp4OwtkYI8cjwG810CRRgqllvc3iWbNyQ73Jym76DzCGgkrY5Gx8gwMWcLZCKw4XwBMzXXjGZG2hryzY.jpg"
+                src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/uGqj4x7JaxbCuCvo1MEj6NtlvpytAAXEMyRDcGdat3avQPpnoAYPwQlpljB2uOXLqpIULGrog1u2nOn2EUCDdcrT3HPxgKkDrkgP1vm4eMOK3Is9wagzAGdIENCIFc9n.jpg"
                 alt="潔淨的環境">
               <h4 class="text-center">潔 淨 的 環 境</h4>
             </div>
             <div class="position-relative mb-2 mb-lg-4 d-lg-flex flex-lg-row-reverse align-items-center">
               <img
-                src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/UDg82WwrKixK4nfbKNkJnYHMR3jEml6qex1iJVCYv6IgvWIJhPaWz1lakmeLGMbFmCS73vV3GH0qyXYzE7CtnZoREr93bhv0gEi9gwDfvX763aoXYWX7ZrhPDEwhu0Ed.jpg"
+                src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/DhLLkL4YP0XFBI0q3gtJJlRebOmRIaC2uiludlXBtT5iOVug2wSTRJm3MrdlnQyQxGvqjfqE7aPpkwoj1uikNfUUUL30GbTWX6s738wXaNR2QZtLHNfoagjPQa2kh4Wp.jpg"
                 alt="多樣的藏酒" class="hoverColor">
               <h4 class="text-center">多 樣 的 藏 酒</h4>
             </div>
             <div class="position-relative mb-2 mb-lg-4 d-lg-flex align-items-center">
               <img
-                src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Mhh0YJHYamk3qO0i9xiyEMzVOgiN8AnhYPbUf1Dbdlm5NcLYYilTTjNEOccjxUVzz5iVYBmbVz2Tf8M48VUZL6muxTAX5M7ew1VWOi0APVe2v1omcPW5WuJlZEwRH7GH.jpg"
+                src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/BYErnZ4GKQGtnVkFDuhIAgE3cDdtn3TgPbXdonp2mgprNJXgEGYNcj18BMoOqs0N7X33ps2CvBHX3f0NquXr3ManOhlVD5PfrQixMcM4d3LdLyVBvOlbKeA7gK6PdnTY.jpg"
                 alt="一流的技術">
               <h4 class="text-center">一 流 的 技 術</h4>
             </div>
@@ -96,26 +96,26 @@
               <validation-observer v-slot="{ invalid }">
                 <validation-provider rules="required" v-slot="{ errors, classes }">
                   <label for="contactName" class="mb-0">姓名</label>
-                  <input v-model="form.name" :class="classes" type="text" id="contactName" class="form-control mb-3" name="姓名">
-                  <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                  <input v-model="form.name" :class="classes" type="text" id="contactName" class="form-control mb-2" name="姓名">
+                  <span class="invalid-feedback mb-3">{{ errors[0] }}</span>
                 </validation-provider>
 
                 <validation-provider rules="required|min:8" v-slot="{ errors, classes }">
                   <label for="contactTel" class="mb-0">連絡電話</label>
-                  <input v-model="form.tel" :class="classes" type="tel" id="contactTel" class="form-control mb-3" name="連絡電話">
-                  <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                  <input v-model="form.tel" :class="classes" type="tel" id="contactTel" class="form-control mb-2" name="連絡電話">
+                  <span class="invalid-feedback mb-3">{{ errors[0] }}</span>
                 </validation-provider>
 
                 <validation-provider rules="required|email" v-slot="{ errors, classes }">
                   <label for="contactEmail" class="mb-0">電子郵件</label>
-                  <input v-model="form.mail" :class="classes" type="email" id="contactEmail" class="form-control mb-3" name="電子郵件">
-                  <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                  <input v-model="form.mail" :class="classes" type="email" id="contactEmail" class="form-control mb-2" name="電子郵件">
+                  <span class="invalid-feedback mb-3">{{ errors[0] }}</span>
                 </validation-provider>
 
                 <validation-provider rules="required" v-slot="{ errors, classes }">
                   <label for="message" class="mb-0">給賣家的意見</label>
-                  <textarea v-model="form.message" :class="classes" name="給賣家的意見" id="message" rows="3" class="form-control mb-4"></textarea>
-                  <span class="invalid-feedback mb-2">{{ errors[0] }}</span>
+                  <textarea v-model="form.message" :class="classes" name="給賣家的意見" id="message" rows="3" class="form-control mb-2"></textarea>
+                  <span class="invalid-feedback mb-4">{{ errors[0] }}</span>
                 </validation-provider>
 
                 <div class="text-center pt-3">

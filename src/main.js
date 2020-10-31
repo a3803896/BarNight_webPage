@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import swiper, { Navigation, Pagination, Autoplay } from 'swiper'
-import productSwiper from './components/Swiper.vue'
-import introswiper from './components/Intro-swiper.vue'
+import ProductSwiper from './components/Swiper.vue'
+import Introswiper from './components/Intro-swiper.vue'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import axios from 'axios'
@@ -27,8 +27,8 @@ AOS.init()
 // 元件
 Vue.component('Loading', Loading)
 Vue.component('Mypagination', Mypagination)
-Vue.component('ProductSwiper', productSwiper)
-Vue.component('intro-swiper', introswiper)
+Vue.component('ProductSwiper', ProductSwiper)
+Vue.component('intro-swiper', Introswiper)
 
 // 驗證元件
 Vue.component('ValidationObserver', ValidationObserver)

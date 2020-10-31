@@ -86,12 +86,10 @@ export default {
       createdTime: {},
       coupon: {},
       orderUser: {},
-      token: '',
       isLoading: false
     }
   },
   created () {
-    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
     this.getOrder()
   },
   methods: {

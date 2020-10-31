@@ -67,7 +67,6 @@
 export default {
   data () {
     return {
-      token: '',
       pagination: {},
       files: [],
       imgPath: '',
@@ -76,7 +75,6 @@ export default {
     }
   },
   created () {
-    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
     this.getFiles()
   },
   methods: {

@@ -15,7 +15,7 @@
             <span class="text-right h4 noto text-danger mb-4">價格：{{ product.price }}元</span>
             <div class="d-flex justify-content-between">
               <input type="number" min="1"
-                class="w-30 noto text-center bg-gray border-0 p-2 pl-2 pr-2 pl-lg-3 pr-lg-3 mr-1" id="numberArr"
+                class="w-30 noto text-center bg-gray border-0 p-2 px-lg-3 mr-1" id="numberArr"
                 v-model.lazy="productNum">
               <button type="button" class="btn btn-main w-70 noto" @click="addCart">加入購物車</button>
             </div>
@@ -71,7 +71,21 @@ export default {
   },
   computed: {
     filterProduct () {
-      return this.products.filter((item) => item.category === this.product.category)
+      function getRandomArrayElements (arr, count) {
+        const shuffled = arr.slice(0)
+        let i = arr.length
+        const min = i - count; let temp
+        let index
+        while (i-- > min) {
+          index = Math.floor((i + 1) * Math.random())
+          temp = shuffled[index]
+          shuffled[index] = shuffled[i]
+          shuffled[i] = temp
+        }
+        return shuffled.slice(min)
+      }
+      const productList = this.products.filter((item) => item.category === this.product.category)
+      return getRandomArrayElements(productList, 3)
     }
   },
   methods: {

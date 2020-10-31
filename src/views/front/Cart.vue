@@ -156,7 +156,6 @@ export default {
   data () {
     return {
       totalPrice: 0,
-      token: '',
       cartProducts: [],
       pagination: {},
       isLoading: false,

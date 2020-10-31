@@ -19,7 +19,7 @@
         </div>
       </nav>
     </div>
-    <router-view class="bg-white"></router-view>
+    <router-view class="bg-white" v-if="isCheck"></router-view>
   </div>
 </template>
 
@@ -28,19 +28,20 @@
 export default {
   data () {
     return {
-      token: ''
+      token: '',
+      isCheck: false
     }
   },
   created () {
-    // 登入驗證
     const url = `${process.env.VUE_APP_APIPATH}auth/check`
     this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
-    this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
     this.axios.post(url, {
       api_token: this.token
-    }).then((res) => {
-      // this.$router.push('/admin/homepage')
     })
+      .then((res) => {
+        this.axios.defaults.headers.Authorization = `Bearer ${this.token}`
+        this.isCheck = true
+      })
       .catch(() => {
         $('.alert').removeClass('d-none')
         this.$router.push('/login')

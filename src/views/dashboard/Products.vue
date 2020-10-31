@@ -193,7 +193,6 @@ export default {
     return {
       isLoading: false,
       isNew: false,
-      token: '',
       products: [],
       tempProduct: {
         imageUrl: []
@@ -202,11 +201,10 @@ export default {
     }
   },
   created () {
-    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
-    this.getData(1)
+    this.getData()
   },
   methods: {
-    getData (onePage) {
+    getData (onePage = 1) {
       this.isLoading = true
       const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/products?page=${onePage}`
       this.axios.get(api)

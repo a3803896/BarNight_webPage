@@ -79,7 +79,7 @@ export default {
     }
   },
   mounted () {
-    this.getProduct(1)
+    this.getProduct()
   }
 }
 </script>

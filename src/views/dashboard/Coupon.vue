@@ -162,7 +162,6 @@ export default {
       coupons: [],
       isNew: false,
       pagination: {},
-      token: '',
       endDate: '',
       endTime: '',
       templateCoupon: {},
@@ -170,7 +169,6 @@ export default {
     }
   },
   created () {
-    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
     this.getCoupon()
   },
   methods: {

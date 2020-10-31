@@ -64,7 +64,7 @@ const routes = [
   {
     path: '/admin',
     name: '後臺',
-    component: () => import('../views/dashboard/Dashboard.vue'),
+    component: () => import('../views/Dashboard.vue'),
     children: [
       {
         path: 'homepage',
