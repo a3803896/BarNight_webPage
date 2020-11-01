@@ -25,7 +25,7 @@
         <div class="col-12">
           <h5 class="text-white mb-3">看看類似的商品：</h5>
           <div class="d-flex flex-wrap justify-content-between">
-            <div class="card mb-4" v-for="(item) in filterProduct" :key="item.id" :data-category="item.category">
+            <div class="card mb-4" v-for="(item) in tempArr" :key="item.id" :data-category="item.category">
               <div class="position-relative">
                 <img :src="item.imageUrl[0]" class="card-img-top pointer" @click.prevent="openProduct(item)" :alt="item.title" />
                 <button type="button" class="addCart position-absolute btn btn-outline-main noto rounded-pill d-flex"
@@ -53,6 +53,7 @@ export default {
   data () {
     return {
       products: [],
+      tempArr: [],
       product: {
         imageUrl: []
       },
@@ -60,7 +61,7 @@ export default {
       isLoading: false
     }
   },
-  mounted () {
+  created () {
     this.getproduct()
   },
   watch: {
@@ -71,11 +72,23 @@ export default {
     }
   },
   computed: {
-    filterProduct () {
-      return this.products.filter((item) => item.category === this.product.category)
-    }
+
   },
   methods: {
+    filterProduct () {
+      const tempArr = this.products.filter((item) => item.category === this.product.category)
+      function getRandomArrayElements (arr, count) {
+        const shuffled = arr.slice(0); let i = arr.length; const min = i - count; let temp; let index
+        while (i-- > min) {
+          index = Math.floor((i + 1) * Math.random())
+          temp = shuffled[index]
+          shuffled[index] = shuffled[i]
+          shuffled[i] = temp
+        }
+        return shuffled.slice(min)
+      }
+      this.tempArr = getRandomArrayElements(tempArr, 3)
+    },
     getproduct () {
       this.isLoading = true
       this.axios.all([
@@ -85,6 +98,7 @@ export default {
         .then(this.axios.spread((resSingle, resAll) => {
           this.product = resSingle.data.data
           this.products = resAll.data.data
+          this.filterProduct()
           this.isLoading = false
         }))
         .catch(() => {
